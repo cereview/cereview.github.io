@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-163163196-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-163163196-1');
+</script>
+<!-- The following line adds the favicon -->
+<link rel="shortcut icon" href="https://advancedquantumalgorithms.github.io/favicon.png" />
+<html lang="en">
+<title>Quantization and Training of NN for efficient Integer-Arithmetic-Only Inference | Amitabh&#39;s Weblog</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Modern CNN architectures have very high model complexity and demard high computational efficiency. Mobile devices, however, present the challenge to accomoda...">
+<meta name="author" content="Amitabh Yadav">
+<meta name="generator" content="Jekyll v4.0.0">
+<link rel="canonical" href="http://localhost:4000/Quantization-and-Training-of-Neural-Networks-for-efficient-Integer-Arithmetic-Only-Inference/">
+<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<link rel="stylesheet" href="/assets/css/classes.css">
+<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="Amitabh's Weblog">
+
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/mathtex-script-type.min.js"></script>
+
+
+
+</head>
+<body>
+<header class="icons">
+  
+    <a href="/" class="title">Amitabh&#39;s Weblog</a>
+  
+  
+    <div class="hidden description"><font face="Playfair Display" size="2">C E R E V I E W</font></div>
+  
+  <hr>
+  
+    
+  <nav>
+  <a aria-label="Home" href="/" ><span aria-hidden="true" >Home</span></a>
+  <a aria-label="Categories" href="/categories/" ><span aria-hidden="true" >Categories</span></a>
+  <a aria-label="About" href="/about/" ><span aria-hidden="true" >About</span></a>
+  
+  </nav>
+
+
+    
+
+  
+</header>
+
+<article>
+  <header>
+  
+    <div class="categories">MACHINE LEARNING HARDWARE</div>
+  
+  <h1><a href="/Quantization-and-Training-of-Neural-Networks-for-efficient-Integer-Arithmetic-Only-Inference/">Quantization and Training of NN for efficient Integer-Arithmetic-Only Inference</a></h1><time datetime="2020-04-14T00:00:00-07:00">April 14, 2020</time> 
+</header>
+
+  <p>Modern CNN architectures have very high model complexity and demard high computational efficiency. Mobile devices, however, present the challenge to accomodate within limited memory and meeting low latency to maintina user engagement. The cost of performing inference on mobile devices like, smartphones, AR/VR devices, drones etc. bears large computation and memory overhead. In order to have more efficient inferece hardware on mobile devices with integer-only arithmetic hardware, a <em>quantization scheme</em> helps in developing integer-only arithmetic to substitute the more sophesticated floating-point arithmetic hardware. Quantization, therefore, is the tradeoff between accuracy and on-device latency. The task at hand is to reduce model sizes and inference times, with minimal loss to accuracy. This also significantly affects the training procedure and requires the computer architect to maintain end-to-end model accuracy.</p>
+
+<p>This paper presents such a <em>quantization scheme</em> along with a hardware/software co-design training procedure. The improvements are demonstracted on MobileNet (a model family for run-time efficiency) running ImageNet classification and COCO object detection on modern CPUs.</p>
+
+<h4 id="contributions-of-the-paper">Contributions of the paper:</h4>
+<ol>
+  <li>A <em>quantization scheme</em> to quantize <em>weights</em> and <em>activations</em> as 8-bit integers, and other few parameters (such as, bias vectors) as 32-bit integers. This quantization scheme is derived from Ref.<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> suggesting fixed-point arithemetic to accelerate training speed and Ref.<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup> suggesting 8-bit fixed-point arithemetic to accelerate inference on x86 architecture.</li>
+  <li>A <em>quantization inference framework</em> for integer-arithmetic only hardware.</li>
+  <li>A co-designed <em>quantization training framework</em> to maintain accuracy of inferece.</li>
+  <li>Presents the implementation of the frameworks on<em>MobileNet</em>running on ARM CPUs, to perform classification (ImageNet<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup>) and object detection (COCO <sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>).</li>
+</ol>
+
+<h2 id="details">Details</h2>
+<p>The quantization scheme employs an Integer-arithmetic only for Inference; and a Floating-point arithmetic for training. Both representation have a high degree of correlation with each other by separate adoption of the <em>quantization scheme</em> for each.</p>
+
+<p><script type="math/tex">q \rightarrow</script> <em>quantized value</em>, denotes bit-representation of values.</p>
+
+<p><script type="math/tex">r \rightarrow</script> <em>real value</em>, denotes the actual numerical value.</p>
+
+<p>The integer value to quantized value <em>mapping</em> is given as follows:</p>
+
+<script type="math/tex; mode=display">r=S(q-Z)</script>
+
+<p>where, <script type="math/tex">S</script> and <script type="math/tex">Z</script> are some constants called <em>quantization parameters</em>. q can be quantized as <em>B</em>-bit integer for <em>B</em>-bit quantization. Here, <em>B</em> is 8-bits. Bias vectors are quantized as 32-bit integers.</p>
+
+<p>Here, a single set of quantization parameters is used for both <em>weights array</em> and <em>activations array</em>. Separate arrays can use separate quantization parameters. The mapping can be implemented as SIMD as opposed to the alternate method of using look-up table, to have better performance.</p>
+
+<h4 id="8-bit-quantization">8-bit Quantization</h4>
+<p><script type="math/tex">r=S(q-Z)</script></p>
+
+<p><script type="math/tex">S \rightarrow</script> <em>“Scale”</em> is arbitrary positive number. In software, it is a floating-point number just like the real value <script type="math/tex">r</script>, of type <code class="highlighter-rouge">float</code>. Note that for inference, the floating-point quantities need to be eliminated (discussed ahead).</p>
+
+<p><script type="math/tex">Z \rightarrow</script> <em>“Zero-point”</em> is the <em>quantized value</em> corresponding to <script type="math/tex">0</script>, and is of the same type as <script type="math/tex">q</script> i.e. <code class="highlighter-rouge">uint8</code>.</p>
+
+<p>Using the above mapping, 0 is exactly representable in real value as well. NN implementation often has 0-padding of arrays around boundaries. This property of the mapping facilitates in that.</p>
+
+<h4 id="how-to-do-integer-arithmetic-only-matrix-multiplication">How to do Integer-Arithmetic-Only Matrix Multiplication?</h4>
+<p>Currently, <script type="math/tex">r</script> and <script type="math/tex">S</script> are floating point, and we need to have an integer-arithmetic-only inference scheme using the mapping <script type="math/tex">r=S(q-Z)</script>.</p>
+
+<p>Given, <script type="math/tex">N \times N</script> matrix composed of real values <script type="math/tex">r_1</script> and <script type="math/tex">r_2</script>. Their product matrix has values <script type="math/tex">r_3 = r_1r_2</script>. We have <script type="math/tex">r_{\alpha}^{i,j}</script> such that, <script type="math/tex">1 \leq i,j \leq N</script>, with quantization parameters <script type="math/tex">(S_\alpha, Z_\alpha)</script>.</p>
+
+<script type="math/tex; mode=display">r_{\alpha}^{i,j} = S_\alpha(q_{\alpha}^{i,j} - Z_\alpha)</script>
+
+<p>By performing matrix multiplication, we have:</p>
+
+<script type="math/tex; mode=display">S_3(q_{3}^{i,k} - Z_3) = \sum_{j=1}^N S_1(q_{1}^{i,j} - Z_1)S_2(q_{2}^{j,k} - Z_2)</script>
+
+<p>rewriting,</p>
+
+<script type="math/tex; mode=display">q_{3}^{i,k} = Z_3 + M\sum_{j=1}^N (q_{1}^{i,j} - Z_1)(q_{2}^{j,k} - Z_2)</script>
+
+<p>where <script type="math/tex">M</script> remains the only non-integer constant which can be calculated offline using quantization scales <script type="math/tex">S_1, S_2</script> and <script type="math/tex">S_3</script>,</p>
+
+<script type="math/tex; mode=display">M := \frac{S_1S_2}{S_3}</script>
+
+<p>Empirically, it is determined that 0 \lt M \lt 1, and therefore can be expressed in the normalized form as follows:</p>
+
+<script type="math/tex; mode=display">M = 2^{-n}M_0</script>
+
+<p>where, <script type="math/tex">M_0 \in (0.5,1]</script> and <script type="math/tex">n \in \mathbb I^{+}</script></p>
+
+<h4 id="strengths-of-paper-and-mechanisms">Strengths of paper and mechanisms</h4>
+
+<h4 id="weaknesses-of-paper-and-mechanism">Weaknesses of paper and mechanism</h4>
+
+<h2 id="ideas-for-improvement">Ideas for improvement</h2>
+
+<h2 id="lessons-learned">Lessons learned</h2>
+
+<h2 id="some-other-interesting-approaches">Some other interesting approaches</h2>
+
+<p><strong>Reference:</strong> Jacob, B., Kligys, S., Chen, B., Zhu, M., Tang, M., Howard, A., Adam, H. and Kalenichenko, D., 2018. <em>“Quantization and training of neural networks for efficient integer-arithmetic-only inference”</em>. In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (pp. 2704-2713).</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Gupta, Suyog, et al. “Deep learning with limited numerical precision.” International Conference on Machine Learning. 2015. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Vanhoucke, Vincent, Andrew Senior, and Mark Z. Mao. “Improving the speed of neural networks on CPUs.” (2011). <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:3">
+      <p>Deng, Jia, et al. “Imagenet: A large-scale hierarchical image database.” 2009 IEEE conference on computer vision and pattern recognition. Ieee, 2009. <a href="#fnref:3" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Lin, Tsung-Yi, et al. “Microsoft coco: Common objects in context.” European conference on computer vision. Springer, Cham, 2014. <a href="#fnref:4" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+  
+</article>
+
+
+  <footer class="related">
+  	<div class="previous"><span>Previous Post</span><a href="/Book-Review-The-Emperors-New-Mind/">Book Review: The Emperor's New Mind by Roger Penrose</a></div>
+	<div class="next"></div>
+  </footer>
+
+<!-- -->
+</body>
+</html>

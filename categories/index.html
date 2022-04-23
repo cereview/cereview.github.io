@@ -1,87 +1,163 @@
 <!DOCTYPE html>
-<!-- The following line adds the favicon -->
-<link rel="shortcut icon" href="https://cereview.github.io/favicon.png" />
 <html lang="en">
-<title>Categories | C E R E V I E W</title>
+<title>Categories | [ blog | amitabh yadav ]</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Amitabh Yadav">
-<meta name="generator" content="Jekyll v4.2.1">
 <link rel="canonical" href="http://localhost:4000/categories/">
-<link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
 
-<link rel="stylesheet" href="/assets/css/frame.css">
+<link rel="stylesheet" href="/assets/css/index.css">
 
-<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="C E R E V I E W">
+<style> 
+#topbtn {
+  display: none;
+  position: fixed;
+  bottom: 55px;
+  right: 1em;
+  z-index: 99;
+  font-size: 18px;
+  border: solid black 0.5pt;
+  outline: none;
+  background-color: rgba(186, 186, 186, 0.25);
+  color: black;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+// collapsible scripts 
+.collapsible {
+
+}
+
+.collapsible::before {
+  content: "▸ " ;//"&#x25BA; ";
+}
+
+.collapsibleactive, .collapsible:hover {
+  //background-color: #555;
+  border-bottom: dotted 0.5pt red; 
+}
+
+.collapsibleactive::before {
+  content: "▾ ";//"&#x25BC; ";
+}
+
+.collapsiblecontent {
+  padding: 0 5px;
+  display: none;
+  overflow: hidden;
+  background-color: white;
+}
+</style>
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="[ blog | amitabh yadav ]">
 
 
 
-<link rel="stylesheet" href="/assets/css/sidebar.css" media="screen and (min-width: 70em)">
-<aside style="display: none">
-  <nav><a aria-label="Home" href="/" >
-      <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
-      <span aria-hidden="true">Home</span>
-    </a><a aria-label="Categories" href="/categories/" class="selected">
-      <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
-      <span aria-hidden="true">Categories</span>
-    </a><a aria-label="About" href="/about/" >
-      <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#"></use></svg>
-      <span aria-hidden="true">About</span>
-    </a><a aria-label="Mail" href="mailto:amitabhyadav@protonmail.com" >
-      <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg>
-      <span aria-hidden="true">Mail</span>
-    </a><a aria-label="Github" href="https://github.com/amitabhyadav" >
-      <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg>
-      <span aria-hidden="true">Github</span>
-    </a><a aria-label="Subscribe" href="/feed.xml" >
-      <svg aria-hidden="true" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg>
-      <span aria-hidden="true">Subscribe</span>
-    </a></nav>
-  <div class="description">CEREVIEW</div>
-</aside>
 
 
 
-<body>
+
 <header>
-  <font face="Playfair Display"><a href="/" class="title">C E R E V I E W</a> A Physics, Maths and Computing weblog<br>
-  <hr>
-  <nav><a href="/" >Home</a><a href="/categories/" class="selected">Categories</a><a href="/about/" >About</a></nav>
-</font>
+  <h2><a href="/" class="title" style="border-bottom: none;">[ blog | amitabh yadav ]</a></h2>
+  <nav><a href="" ></a></nav>
+
 </header>
+
 
 <article>
-  <header>
-  
-  <h1><font face="Playfair Display" size="6"><a href="/categories/">Categories</a></font></h1><time datetime=""></time>
-</header>
-
-   
-	<h4>Philosophy</h4>
-	<ul class="archive" style="list-style-type: disc;">
-		
-		<li><a href="/articles/philosophy/ways-of-knowing/">Physics and Philosophy  1: Ways of Knowing</a></li>
-		
-	</ul>
-
-
-  
+  <header><h3>Categories</h3></header>
+  <!-- <hr style="width: 80%; text-align=left; background-color:red;"> -->
+  <ul class="archive">
+    
+    <!-- <li> -->
+      <!-- <time datetime="2022-04-22T00:00:00+02:00" style="font-family:monospace; font-size:0.75em;">2022-Apr-22..........</time><a href="/posts/2022/gaps_in_computer_arithmetic/" style="border-bottom: none;">Gaps in Computer Arithmetic</a>  -->
+      <!-- <time datetime="2022-04-22T00:00:00+02:00" style="font-family:monospace; color: gray; font-size:0.8em; float: right;">2022-04-22</time> -->
+    <!--</li> -->
+    
+    <!-- <li> -->
+      <!-- <time datetime="2021-06-27T00:00:00+02:00" style="font-family:monospace; font-size:0.75em;">2021-Jun-27..........</time><a href="/markdown-examples/" style="border-bottom: none;">Markdown examples</a>  -->
+      <!-- <time datetime="2021-06-27T00:00:00+02:00" style="font-family:monospace; color: gray; font-size:0.8em; float: right;">2021-06-27</time> -->
+    <!--</li> -->
+    
+    <!-- <li> -->
+      <!-- <time datetime="2017-05-27T00:00:00+02:00" style="font-family:monospace; font-size:0.75em;">2017-May-27..........</time><a href="/advanced-examples/" style="border-bottom: none;">Advanced examples</a>  -->
+      <!-- <time datetime="2017-05-27T00:00:00+02:00" style="font-family:monospace; color: gray; font-size:0.8em; float: right;">2017-05-27</time> -->
+    <!--</li> -->
+    
+	  </ul>
+	  
+	  <button type="button" style="background: none; color: inherit; border: 0.5pt; padding: 2px; font: inherit; cursor: pointer; " class="collapsible">computer architecture</button>
+	  <div class="collapsiblecontent">
+		  <ul style="list-style-type: square;">
+		    
+		      <li><a href="/posts/2022/gaps_in_computer_arithmetic/">Gaps in Computer Arithmetic</a></li>
+		    
+		      <li><a href="/advanced-examples/">Advanced examples</a></li>
+		    
+		  </ul>
+	  </div><br>
+	  
+	  <button type="button" style="background: none; color: inherit; border: 0.5pt; padding: 2px; font: inherit; cursor: pointer; " class="collapsible">software design patterns</button>
+	  <div class="collapsiblecontent">
+		  <ul style="list-style-type: square;">
+		    
+		      <li><a href="/markdown-examples/">Markdown examples</a></li>
+		    
+		  </ul>
+	  </div><br>
+	  
 </article>
 
 
-  <footer class="related">
-  	<div class="previous"></div>
-	<div class="next"></div>
-  </footer>
-
-
-
+  <button onclick="topFunction()" id="topbtn" title="Go to top">Go to Top</button>
 
 <footer>
-  <div>CEREVIEW</div>
-  <nav><a href="mailto:amitabhyadav@protonmail.com" ><svg aria-label="Mail" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#envelope"></use></svg></a><a href="https://github.com/amitabhyadav" ><svg aria-label="Github" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#github"></use></svg></a><a href="/feed.xml" ><svg aria-label="Subscribe" class="icon"><use xlink:href="/assets/fontawesome/icons.svg#rss"></use></svg></a></nav>
+  <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear())); </script> Amitabh Yadav</div> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  <nav><a href="/categories/" class="selected">[ view categories ]</a><a href="https://amitabhyadav.com" >[ home ]</a></nav>
 
 </footer>
 
-</body>
+
+<!-- Go to Top Scripts -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<!-- Collapsible Scripts-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleactive");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
 </html>

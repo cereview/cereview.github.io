@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-05-03T22:40:54+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">amitabh yadav</title><subtitle>It&apos;s not right but the thing is, it&apos;s not even wrong!</subtitle><author><name>Amitabh Yadav</name></author><entry><title type="html">Computer Arithmetic : In Depth</title><link href="http://localhost:4000/posts/2022/computer-arithmetic-in-depth/" rel="alternate" type="text/html" title="Computer Arithmetic : In Depth" /><published>2022-04-22T00:00:00+02:00</published><updated>2022-04-22T00:00:00+02:00</updated><id>http://localhost:4000/posts/2022/computer-arithmetic</id><content type="html" xml:base="http://localhost:4000/posts/2022/computer-arithmetic-in-depth/"><![CDATA[<h3 id="number-representation">Number Representation</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2022-05-03T23:00:22+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">amitabh yadav</title><subtitle>It&apos;s not right but the thing is, it&apos;s not even wrong!</subtitle><author><name>Amitabh Yadav</name></author><entry><title type="html">Computer Arithmetic : In Depth</title><link href="http://localhost:4000/posts/2022/computer-arithmetic-in-depth/" rel="alternate" type="text/html" title="Computer Arithmetic : In Depth" /><published>2022-04-22T00:00:00+02:00</published><updated>2022-04-22T00:00:00+02:00</updated><id>http://localhost:4000/posts/2022/computer-arithmetic</id><content type="html" xml:base="http://localhost:4000/posts/2022/computer-arithmetic-in-depth/"><![CDATA[<h3 id="number-representation">Number Representation</h3>
 
 <p>Conventional and oftentimes exotic methods of number representation can lead to performance gains in terms of simpler and faster circuits. While conventional methods are used extensively, the unconventional ones find application in special purpose digital circuits and systems.</p>
 
@@ -21,7 +21,7 @@
 
 <p><img src="/images/computer-arithmetic/scope-of-computer-arithmetic.png" alt="The scope of computer arithmetic" /></p>
 
-<h5 id="references">References:</h5>
+<h4 id="references">References:</h4>
 
 <ol>
   <li>Behrooz Parhami, <em>Computer Arithmetic: Algorithms and Hardware Designs</em>, 2nd Edition, Oxford University Press, New York, 2010.</li>

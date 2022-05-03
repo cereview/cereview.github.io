@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>About | amitabh yadav</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Amitabh Yadav">
+<link rel="canonical" href="http://localhost:4000/about/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<style> 
+#topbtn {
+  display: none;
+  position: fixed;
+  bottom: 55px;
+  right: 1em;
+  z-index: 99;
+  font-size: 18px;
+  border: solid black 0.5pt;
+  outline: none;
+  background-color: rgba(186, 186, 186, 0.25);
+  color: black;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+// collapsible scripts 
+.collapsible {
+
+}
+
+.collapsible::before {
+  content: "▸ " ;//"&#x25BA; ";
+}
+
+.collapsibleactive, .collapsible:hover {
+  //background-color: #555;
+  border-bottom: dotted 0.5pt red; 
+}
+
+.collapsibleactive::before {
+  content: "▾ ";//"&#x25BC; ";
+}
+
+.collapsiblecontent {
+  padding: 0 5px;
+  display: none;
+  overflow: hidden;
+  background-color: white;
+}
+</style>
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
+
+
+
+
+
+
+
+<header>
+  <h2><br><a href="/" class="title" style="border-bottom: none;">blog <span class="cursor-thick">| </span>amitabh yadav</a></h2>
+  <nav><a href="" ></a></nav>
+
+</header>
+
+
+<article>
+  <header><h1><a href="/about/">About</a></h1></header>
+  <p>Computers exists everywhere, from interstellar satellites to desktop computers, from a space shuttle’s control system to your own mobile phone; and from the high-speed data-crunching servers running at the CERN’s World-Wide LHC Computing Grid (WLCG) to your office’s coffee machine!</p>
+
+<p>So, the question is, if something is so versatile, how could we begin to comprehend it? Is there a common link to understand all the different types of computer systems? Fortunately, a link exists and it has been the driving force that has marked the works of electrical engineers and computer scientists since the later half of the twentieth century. Computer Engineering (abbr. as CE) encompasses a wide range of study disciplines, thinking methodologies and design ideas. Whether you are a scientific expert on CE or a lay-man looking for some of the most unique applications of CE in the scientific world you’ll definitely find something new here to read and learn about. The topics of articles might not be well-structured all through the way, but you can always catch up on the related topics by going through the [<a href="../categories"> view categories </a>] section.</p>
+
+<p>We’ll trace the origins of computers; ponder over new computing paradigms like quantum computing, computation-in-memory, parallel-architectures, heterogeneous accelerators and much more. We’ll study their functioning on how the unique combination of Electronics and Computer Science bridges the hardware and software aspects of a computer system. I’ll also share some of my works occasionally, that’ll hopefully help provide a real-world perspective of the applications of CE.</p>
+
+<p>In this blog, we talk about a variety of topics in Computer Engineering, Hardware Design, Microelectronics, Computational Sciences and sometimes, just my thoughts, ideas about efficiency, time and personal management and some of my philosophical outlook.</p>
+
+<p>If you like the articles, I’ll be very happy to receive your comments. You can DM me on Twitter [ <a href="https://www.twitter.com/amitabhydv">@amitabhydv</a> ] or, if you're old school like me ;) send me an email at [ <a href="mailto:amitabh@syncmind.org">amitabh@syncmind.org</a> ]. You are now all set to dive right in!</p>
+
+<p class="no-print"><a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p class="no-print"><a href="http://blog.amitabhyadav.com">Click here</a> to go back to the articles. To know more about me, <a href="http://amitabhyadav.com">Click Here</a>.</p>
+
+<!-- <hr style="border-top: 1px solid red;"> -->
+
+<h2>SyncMind AI research</h2>
+
+<p>As a research scientist, my personal ambition is to develop hardware and software systems to link human brain to the computing world. While downloading human consciousness to the ‘chip’ can be considered science fiction in the near future; silicon based integrated circuits are already a reality that are transforming the lives of people suffering from brain and neural ailments. I am working on one such end-to-end development research initiative called SyncMind. You can read all about our ongoing work at [ <a href="http://syncmind.org">SyncMind.org</a> ] and reach our team with your queries at [ <a href="mailto:team@syncmind.org">team@syncmind.org</a> ].</p>
+
+<p class="no-print"><a href="https://twitter.com/SyncMindAI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @SyncMindAI</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>SyncMind is a non-profit research initiative and on my team's behalf, I would like to reach out to you to consider donating in order to support the SyncMind.org initiative.</p>
+	  
+<h4 id="paypal">Paypal:</h4>
+<div style="margin-left: 4em; padding: 0;">
+<form action="https://www.paypal.com/donate" method="post" target="_top">
+<input type="hidden" name="business" value="8HFU34TM848XY" />
+<input type="hidden" name="no_recurring" value="0" />
+<input type="hidden" name="item_name" value="Any contribution, whether small or big, helps us a lot. We thank you for your kind donation to SyncMind - support@syncmind.org" />
+<input type="hidden" name="currency_code" value="USD" />
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+</form>
+
+<p>If the above link is not working, <a href="https://www.paypal.com/donate?business=8HFU34TM848XY&amp;no_recurring=0&amp;item_name=Any+contribution%2C+whether+small+or+big%2C+helps+us+a+lot.+We+thank+you+for+your+kind+donation+to+SyncMind+-+support%40syncmind.org&amp;currency_code=USD">click here</a></p>
+</div>
+<h4>Cryptocurrency:</h4>
+
+<div style="margin-left: 4em; padding: 0;">
+      <strong>Bitcoin (BTC)</strong><br>
+      1GshfwPnPd1XFNCfF89LDcFDXaamfYqXoW <br>
+      [ on bitcoin network ]<br><br>
+      <strong>Ethereum (ETH)</strong><br>
+      0x1e76f601ba98e06a8e6a14447b5838b8c945bd49 <br>
+      [ on ethereum (ERC20) network ]<br>
+</div>
+
+
+## Installation
+
+Just fork a this [repository](https://github.com/niklasbuschmann/contrast) and adjust the `_config.yml` to use with [Github Pages](https://pages.github.com/) and your page is done.
+
+## Features
+
+ - supports dark mode on macOS Mojave
+ - optional sidebar
+ - MathJax support
+ - no external ressources
+ - included archive page
+ - supports pagination
+ - feed generation
+ - responsive
+ - syntax highlighting
+ - supports comments via [disqus](https://disqus.com/) or [isso](http://posativ.org/isso/)
+
+## Based on
+
+- [Hyde](https://github.com/poole/hyde)
+- [Minima](https://github.com/jekyll/minima)
+- [Lagrange](https://github.com/LeNPaul/Lagrange)
+- [Font Awesome](http://fontawesome.io/)
+- [KaTeX](https://katex.org/)
+- [Pygments](https://github.com/richleland/pygments-css)
+
+## Installation (jekyll-remote-theme method)
+
+You can use this theme with the `jekyll-remote-theme` plugin. Just create an empty repo, copy over the `index.html` file and add this to your `_config.yml`:
+
+```yaml
+remote_theme: niklasbuschmann/contrast@v2.11
+
+plugins:
+  - jekyll-remote-theme
+```
+
+Note: to enable icons you also need to copy over the `_data` folder.
+
+## Config
+
+Your `_config.yml` could for example look like this:
+
+```yaml
+title: "Blog Title"
+author: "Blog Author"
+description: "My personal blog about ... something"
+permalink: /:title/
+lang: "en"
+excerpt_separator: "\n\n\n"
+date_format: "%B %d, %Y"
+
+# Layout
+
+show_excerpts: true        # show article excerpts on the home page
+show_frame: true           # adds a gray frame to the site
+show_sidebar: false        # show a sidebar instead of the usual header
+
+# Menu
+
+navigation:                # accepts {file, title, url, icon, sidebaricon}
+  - {file: "index.html"}
+  - {file: "README.md"}
+
+external:                  # shows a footer with social links - for available icons see fontawesome.com/icons
+  - {title: Mail, icon: envelope, url: "mailto:niklasbuschmann@users.noreply.github.com"}
+  - {title: Github, icon: github, url: "https://github.com/niklasbuschmann/contrast"}
+  - {title: Subscribe, icon: rss, url: "/feed.xml"}
+
+comments:
+#  disqus_shortname: ""    # see https://disqus.com/
+#  isso_domain: ""         # see https://posativ.org/isso/
+
+plugins:
+ - jekyll-feed
+
+```
+
+## MathJax
+
+Contrast comes preinstalled with a leightweight alternative to MathJax called [KaTeX](https://katex.org/). To display equations in a post simply set `mathjax: true` in the article's front matter.
+
+## License
+
+[public domain](http://unlicense.org/)
+
+## Screenshots
+
+![screenshot](https://user-images.githubusercontent.com/4943215/109431850-cd711780-7a08-11eb-8601-2763f2ee6bb4.png)
+
+![screenshot](https://user-images.githubusercontent.com/4943215/109431832-b6cac080-7a08-11eb-9c5e-a058680c23a1.png)
+
+![screenshot](https://user-images.githubusercontent.com/4943215/73125194-5f0b8b80-3fa4-11ea-805c-8387187503ad.png)
+
+</article>
+
+  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">Go to Top</button>
+
+<footer style="font-family:monospace;" class="no-print">
+  <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear())); </script> Amitabh Yadav</div> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  <nav><a href="/categories/" >[ view categories ]</a><a href="/about" >[ about ]</a><a href="https://amitabhyadav.com" >[ home ]</a></nav>
+
+</footer>
+
+
+<!-- Go to Top Scripts -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<!-- Collapsible Scripts-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleactive");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</html>

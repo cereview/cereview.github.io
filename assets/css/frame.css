@@ -14,7 +14,7 @@ b, strong, th { font-weight: 620; }
 
 p { text-align: justify; }
 
-a { color: #16407f; text-decoration: inherit; }
+a { color: #168f; text-decoration: inherit; }
 
 a:hover { text-decoration: underline; }
 
@@ -66,9 +66,9 @@ nav a { margin: .5em 1.2em; }
 
 .more { margin: 2em 0 1em; }
 
-.more a { border-radius: 2px; border: 1.5px solid #16407f; padding: .4em .8em; transition: .2s background, .2s color; }
+.more a { border-radius: 2px; border: 1.5px solid #168f; padding: .4em .8em; transition: .2s background, .2s color; }
 
-.more a:hover { color: #fff; background: #16407f; text-decoration: inherit; }
+.more a:hover { color: #fff; background: #168f; text-decoration: inherit; }
 
 .archive { font-size: 1.12em; list-style-type: none; margin: 0; padding: 0; }
 

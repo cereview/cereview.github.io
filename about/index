@@ -212,6 +212,9 @@ Contrast comes preinstalled with a leightweight alternative to MathJax called [K
 
 </article>
 
+
+
+
   <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">Go to Top</button>
 
 <footer style="font-family:monospace;" class="no-print">

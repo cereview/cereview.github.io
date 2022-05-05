@@ -4,7 +4,7 @@
 
 body { background: #ffffff; color: #212228; font-family: -apple-system, "Segoe UI", "PT Sans", sans-serif; font-weight: 420; font-size: calc(0.65rem + 0.2vw); line-height: 1.6; margin-left: 1em; min-height: 100vh; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-@media (prefers-color-scheme: dark) { body { background: #212228; color: #ffffff; } }
+@media (prefers-color-scheme: light) { body { background: #ffffff; color: #212228; } }
 
 @media print { .no-print, .no-print * { display: none !important; } }
 

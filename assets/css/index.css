@@ -4,7 +4,7 @@
 
 body { background: #ffffff; color: #212228; font-family: -apple-system, "Segoe UI", "PT Sans", sans-serif; font-weight: 420; font-size: calc(0.65rem + 0.2vw); line-height: 1.6; margin-left: 1em; min-height: 100vh; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
-@media (prefers-color-scheme: dark) { body { background: #212228; color: #ffffff; } }
+@media (prefers-color-scheme: light) { body { background: #ffffff; color: #212228; } }
 
 @media print { .no-print, .no-print * { display: none !important; } }
 
@@ -172,7 +172,7 @@ a:hover { border-bottom: dotted 1.5px; text-decoration: none; }
 
 .highlight .gi { color: #a6e22e; }
 
-@media (min-width: 40em) { body > header, body > article, body > footer { padding: 0.5em calc(45% - 17.5em); background: #ffffff; color: #212228; } }
+@media (min-width: 40em) { body > header, body > article, body > footer { padding: 0.3em calc(45% - 17.5em); } }
 
 body > header { box-shadow: 0 0 0.6em rgba(33, 34, 40, 0.04); border-bottom: 1px solid rgba(144, 145, 148, 0.14); }
 

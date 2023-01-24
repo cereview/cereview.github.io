@@ -1,32 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-01-24T19:10:26+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">amitabh yadav</title><subtitle>It&apos;s not right but the thing is, it&apos;s not even wrong!</subtitle><author><name>Amitabh Yadav</name></author><entry><title type="html">Mythms and Legends in High Performance Computing</title><link href="http://localhost:4000/posts/2023/myths-and-legends-hpc/" rel="alternate" type="text/html" title="Mythms and Legends in High Performance Computing" /><published>2023-01-24T00:00:00+01:00</published><updated>2023-01-24T00:00:00+01:00</updated><id>http://localhost:4000/posts/2023/myths-and-legends-hpc</id><content type="html" xml:base="http://localhost:4000/posts/2023/myths-and-legends-hpc/"><![CDATA[<h2 id="number-representation">Number Representation</h2>
+<!DOCTYPE html>
+<html lang="en">
+<title>The Hardware Lottery | amitabh yadav</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Amitabh Yadav">
+<link rel="canonical" href="http://localhost:4000/posts/2023/the-hardware-lottery/">
 
-<p>Conventional and oftentimes exotic methods of number representation can lead to performance gains in terms of simpler and faster circuits. While conventional methods are used extensively, the unconventional ones find application in special purpose digital circuits and systems.</p>
+<link rel="stylesheet" href="/assets/css/index.css">
 
-<blockquote>
-  <p>Computer arithmetic deals with the hardware realization of arithmetic functions to support various computer architectures as well as with arithmetic algorithms for firmware or software implementation.</p>
-</blockquote>
+<style> 
+#topbtn {
+  display: none;
+  position: fixed;
+  bottom: 55px;
+  right: 1em;
+  z-index: 99;
+  font-size: 18px;
+  border: solid black 0.5pt;
+  outline: none;
+  background-color: rgba(186, 186, 186, 0.25);
+  color: black;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+}
 
-<p>A major thrust of digital computer arithmetic is the design of hardware algorithms and circuits to enhance the speed of numeric operations. Thus computer arithmetic complements the architectural and algorithmic speedup techniques for high-performance computer architecture design and parallel processing.</p>
+// collapsible scripts 
+.collapsible {
 
-<p>Objectives:</p>
+}
 
-<ul>
-  <li>To be able to describe the core design elements of the Arithmetic and Logic Unit (ALUs) of top-of-the-line CPUs designed using high-performance parallel arithmetic circuits.</li>
-  <li>At times we will also deal with slow bit-serial designs for embedded applications, where implementation cost and input/output pin limitations are of prime concern.</li>
-  <li>It would be a mistake, though, to conclude that computer arithmetic is useful only to computer designers. We will see shortly that you can use scientific calculations more effectively and write programs that are more accurate and/or more efficient after a study of computer arithmetic.</li>
-  <li>You will be able to render informed judgment when faced with the problem of choosing a digital signal processor chip for your project.</li>
-</ul>
+.collapsible::before {
+  content: "▸ " ;//"&#x25BA; ";
+}
 
-<h3 id="fixed-point-numbers">Fixed Point Numbers</h3>
+.collapsibleactive, .collapsible:hover {
+  //background-color: #555;
+  border-bottom: dotted 0.5pt red; 
+}
 
-<p><img src="/images/computer-arithmetic/scope-of-computer-arithmetic.png" alt="The scope of computer arithmetic" /></p>
+.collapsibleactive::before {
+  content: "▾ ";//"&#x25BC; ";
+}
 
-<h3 id="references">References:</h3>
+.collapsiblecontent {
+  padding: 0 5px;
+  display: none;
+  overflow: hidden;
+  background-color: white;
+}
+</style>
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
 
-<ol>
-  <li>Behrooz Parhami, <em>Computer Arithmetic: Algorithms and Hardware Designs</em>, 2nd Edition, Oxford University Press, New York, 2010.</li>
-  <li>Henry S. Warren, Jr. , <em>Hacker’s Delight</em>, 2nd Edition, Addison-Wesley Professional, September 2012.</li>
-</ol>]]></content><author><name>Amitabh Yadav</name></author><category term="Computing Reviews" /><summary type="html"><![CDATA[Number Representation Conventional and oftentimes exotic methods of number representation can lead to performance gains in terms of simpler and faster circuits. While conventional methods are used extensively, the unconventional ones find application in special purpose digital circuits and systems. Computer arithmetic deals with the hardware realization of arithmetic functions to support various computer architectures as well as with arithmetic algorithms for firmware or software implementation. A major thrust of digital computer arithmetic is the design of hardware algorithms and circuits to enhance the speed of numeric operations. Thus computer arithmetic complements the architectural and algorithmic speedup techniques for high-performance computer architecture design and parallel processing. Objectives: To be able to describe the core design elements of the Arithmetic and Logic Unit (ALUs) of top-of-the-line CPUs designed using high-performance parallel arithmetic circuits. At times we will also deal with slow bit-serial designs for embedded applications, where implementation cost and input/output pin limitations are of prime concern. It would be a mistake, though, to conclude that computer arithmetic is useful only to computer designers. We will see shortly that you can use scientific calculations more effectively and write programs that are more accurate and/or more efficient after a study of computer arithmetic. You will be able to render informed judgment when faced with the problem of choosing a digital signal processor chip for your project. Fixed Point Numbers References: Behrooz Parhami, Computer Arithmetic: Algorithms and Hardware Designs, 2nd Edition, Oxford University Press, New York, 2010. Henry S. Warren, Jr. , Hacker’s Delight, 2nd Edition, Addison-Wesley Professional, September 2012.]]></summary></entry><entry><title type="html">The Hardware Lottery</title><link href="http://localhost:4000/posts/2023/the-hardware-lottery/" rel="alternate" type="text/html" title="The Hardware Lottery" /><published>2023-01-24T00:00:00+01:00</published><updated>2023-01-24T00:00:00+01:00</updated><id>http://localhost:4000/posts/2023/the-hardware-lottery</id><content type="html" xml:base="http://localhost:4000/posts/2023/the-hardware-lottery/"><![CDATA[<p>Sara Hooker, <a href="https://arxiv.org/abs/2009.06489">“The hardware lottery”</a>, Commun. ACM 64, 12, December 2021, pp. 58-65, https://doi.org/10.1145/3467017</p>
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+
+<script src="//amitabhydv.disqus.com/embed.js" async></script>
+
+
+
+
+
+
+
+
+<article>
+<br><br><br><br><br><br>
+  <header>
+  <strong><span class="cursor-thick">|</span> <a href="/posts/2023/the-hardware-lottery/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">The Hardware Lottery</a></strong></br><span><time datetime="2023-01-24T00:00:00+01:00" style="font-family: monospace;">January 24, 2023</time>  <span style="float:right; font-family: monospace; background-color: rgba(255,255,255, 255); color: #16407f" class="no-print">[ <a href="/">see all posts</a> ]</span></span>
+</header>
+
+  <p>Sara Hooker, <a href="https://arxiv.org/abs/2009.06489">“The hardware lottery”</a>, Commun. ACM 64, 12, December 2021, pp. 58-65, https://doi.org/10.1145/3467017</p>
 
 <h4 id="synopsis">Synopsis</h4>
 <p>The term, Hardware Lottery, is used to define the unintentional prejudice observed historically towards certain research ideas in computer science that succeed, not because they were far superior to others but due to how well-suited they were for the available hardware and software of the time, often creating ‘noise’ to the interpretability of new research directions. The domain-specific era is even more prone to this, where the hardware landscape is getting even more fragmented. Figure 1 demonstrates this. Writing software for each system is expensive and even then chances are only those companies would succeed whose technologies can successfully be adopted to commercial applications. Specialised hardware can be replaced with the advent of newer technologies, therefore scalability and adoptability is critical to a hardware development infrastructure.</p>
@@ -95,4 +140,89 @@
 [<span style="color:blue;">12</span>] Geman, Donald, and Stuart Geman. "Science in the age of selfies." Proceedings of the National Academy of Sciences 113.34 (2016): 9384-9387. <br />
 </div>
 
-<p><code class="language-plaintext highlighter-rouge">[This page is optimized for printing. Please consider saving paper by refraining from printing unless absolutely necessary.]</code></p>]]></content><author><name>Amitabh Yadav</name></author><category term="Digital Design and Simulation" /><summary type="html"><![CDATA[Sara Hooker, “The hardware lottery”, Commun. ACM 64, 12, December 2021, pp. 58-65, https://doi.org/10.1145/3467017]]></summary></entry></feed>
+<p><code class="language-plaintext highlighter-rouge">[This page is optimized for printing. Please consider saving paper by refraining from printing unless absolutely necessary.]</code></p>
+
+  <br> <div class="no-print">
+  <hr style="text-align=left; background-color:red;">
+  
+	<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    	this.page.url = http://localhost:4000/posts/2023/the-hardware-lottery/;  // Replace PAGE_URL with your page's canonical URL variable
+    	this.page.identifier = http://localhost:4000/posts/2023/the-hardware-lottery/; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://amitabhydv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a></noscript>
+
+  
+  </div>
+  
+</article>
+
+
+	<div style="position: fixed; top: -0.6pt; right:1em; background: white; border: solid black 0.5pt; color: black;" class="no-print">&nbsp; <a href="/" style="color: inherit;">blog <span style="font-weight: 1000; font-size: 15px; color: red;">| </span>amitabh yadav</a> &nbsp; </div>
+
+
+
+  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">Go to Top</button>
+
+<footer style="font-family:monospace;" class="no-print">
+  <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear())); </script> Amitabh Yadav</div> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  <nav><a href="/" >[ all posts ]</a><a href="/categories/" >[ categories ]</a><a href="/about" >[ about ]</a></nav>
+
+</footer>
+
+
+<!-- Go to Top Scripts -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<!-- Collapsible Scripts-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleactive");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</html>

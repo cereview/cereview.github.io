@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Formal Verification primer | amitabh yadav</title>
+<title>Mythms and Legends in High Performance Computing | amitabh yadav</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="Amitabh Yadav">
-<link rel="canonical" href="http://localhost:4000/posts/2022/formal-verification-primer/">
+<link rel="canonical" href="http://localhost:4000/posts/2023/myths-and-legends-hpc/">
 
 <link rel="stylesheet" href="/assets/css/index.css">
 
@@ -66,29 +66,40 @@
 
 
 <article>
+<br><br><br><br><br><br>
   <header>
-  <strong><span class="cursor-thick">|</span> <a href="/posts/2022/formal-verification-primer/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">Formal Verification primer</a></strong></br><span><time datetime="2022-05-05T00:00:00+02:00" style="font-family: monospace;">May 05, 2022</time>  <span style="float:right; font-family: monospace; background-color: rgba(255,255,255, 255); color: #16407f" class="no-print">[ <a href="/">see all posts</a> ]</span></span>
+  <strong><span class="cursor-thick">|</span> <a href="/posts/2023/myths-and-legends-hpc/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">Mythms and Legends in High Performance Computing</a></strong></br><span><time datetime="2023-01-24T00:00:00+01:00" style="font-family: monospace;">January 24, 2023</time>  <span style="float:right; font-family: monospace; background-color: rgba(255,255,255, 255); color: #16407f" class="no-print">[ <a href="/">see all posts</a> ]</span></span>
 </header>
 
-  <blockquote>
-  <p>Formal verification (abbr. as FV) is the use of tools that mathematically analyze the space of possible behaviors of a design, rather than computing results for particular values.</p>
+  <h2 id="number-representation">Number Representation</h2>
+
+<p>Conventional and oftentimes exotic methods of number representation can lead to performance gains in terms of simpler and faster circuits. While conventional methods are used extensively, the unconventional ones find application in special purpose digital circuits and systems.</p>
+
+<blockquote>
+  <p>Computer arithmetic deals with the hardware realization of arithmetic functions to support various computer architectures as well as with arithmetic algorithms for firmware or software implementation.</p>
 </blockquote>
 
-<p>This means that FV tools will look a the full space of possible simulations (by using clever mathematical techniques) rather than trying out specific values. Today, FV is an essential element of the design and tapeout flow, specially in critial areas, that can help prevent dangerous bug escapes of potentially serious repurcussions (for example, <a href="https://en.wikipedia.org/wiki/Pentium_FDIV_bug">Intel FDIV bug from early 1990s</a>).</p>
+<p>A major thrust of digital computer arithmetic is the design of hardware algorithms and circuits to enhance the speed of numeric operations. Thus computer arithmetic complements the architectural and algorithmic speedup techniques for high-performance computer architecture design and parallel processing.</p>
 
-<p>FV should be employed from the start of early development up through the post silicon debug process appropriately at every design phase to improve design throughput, increase the confidence in the design and reduce the time to market.</p>
+<p>Objectives:</p>
 
-<p>There are essentially many reasons to inculcate formal verification in your design flow. Some of them are as follow:</p>
+<ul>
+  <li>To be able to describe the core design elements of the Arithmetic and Logic Unit (ALUs) of top-of-the-line CPUs designed using high-performance parallel arithmetic circuits.</li>
+  <li>At times we will also deal with slow bit-serial designs for embedded applications, where implementation cost and input/output pin limitations are of prime concern.</li>
+  <li>It would be a mistake, though, to conclude that computer arithmetic is useful only to computer designers. We will see shortly that you can use scientific calculations more effectively and write programs that are more accurate and/or more efficient after a study of computer arithmetic.</li>
+  <li>You will be able to render informed judgment when faced with the problem of choosing a digital signal processor chip for your project.</li>
+</ul>
+
+<h3 id="fixed-point-numbers">Fixed Point Numbers</h3>
+
+<p><img src="/images/computer-arithmetic/scope-of-computer-arithmetic.png" alt="The scope of computer arithmetic" /></p>
 
 <h3 id="references">References:</h3>
+
 <ol>
-  <li>Eric Seligman, Tom Schubert, M V Achutha Kiran Kumar, <em>Formal Verification: An Essential Toolkit for Modern VLSI Design</em>, Morgan Kaufmann publications by Elsevier Inc. (2015).</li>
+  <li>Behrooz Parhami, <em>Computer Arithmetic: Algorithms and Hardware Designs</em>, 2nd Edition, Oxford University Press, New York, 2010.</li>
+  <li>Henry S. Warren, Jr. , <em>Hacker’s Delight</em>, 2nd Edition, Addison-Wesley Professional, September 2012.</li>
 </ol>
-
-<h3 id="disclaimer">Disclaimer:</h3>
-<p>A large part of the post are direct paraphrasing or direct quotations from the books and other online references. All credits are therefore attributed to the original authors. This post serves as a means to organize and present the useful infomation from different sources in a concise and practical way.</p>
-
-<p>[This page is optimized for printing. Please consider saving paper by refraining from printing unless absolutely necessary.]</p>
 
   <br> <div class="no-print">
   <hr style="text-align=left; background-color:red;">
@@ -100,8 +111,8 @@
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     
     var disqus_config = function () {
-    	this.page.url = http://localhost:4000/posts/2022/formal-verification-primer/;  // Replace PAGE_URL with your page's canonical URL variable
-    	this.page.identifier = http://localhost:4000/posts/2022/formal-verification-primer/; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    	this.page.url = http://localhost:4000/posts/2023/myths-and-legends-hpc/;  // Replace PAGE_URL with your page's canonical URL variable
+    	this.page.identifier = http://localhost:4000/posts/2023/myths-and-legends-hpc/; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     
     (function() { // DON'T EDIT BELOW THIS LINE

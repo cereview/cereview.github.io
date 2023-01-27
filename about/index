@@ -12,7 +12,7 @@
 #topbtn {
   display: none;
   position: fixed;
-  bottom: 55px;
+  bottom: 50px;
   right: 1em;
   z-index: 99;
   font-size: 18px;
@@ -49,6 +49,7 @@
   overflow: hidden;
   background-color: white;
 }
+
 </style>
 <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
 
@@ -86,7 +87,7 @@ Also fyi, all posts are optimized for printing. However, please consider saving 
 
 <h2>SyncMind AI research</h2>
 
-<p>As a research scientist, my personal ambition is to develop hardware and software systems to link human brain to the computing world. While downloading human consciousness to the ‘chip’ can be considered science fiction in the near future; silicon based integrated circuits are already a reality that are transforming the lives of people suffering from brain and neural ailments. I am working on one such end-to-end development research initiative called SyncMind. You can read all about our ongoing work at [ <a href="http://syncmind.org">SyncMind.org</a> ] and reach our team with your queries at [ <a href="mailto:team@syncmind.org">team@syncmind.org</a> ].</p>
+<p>As a research scientist, my personal ambition is to develop hardware and software systems to link human brain to the computing world. While downloading human consciousness to the ‘chip’ can be considered science fiction in the near future; silicon based integrated circuits are already a reality that are transforming the lives of people suffering from brain and neural ailments. I am working on one such end-to-end development research initiative called SyncMind. You can read all about our ongoing work at [ <a href="http://syncmind.org">SyncMind.org</a> ] and reach our team with your queries at [ <a href="mailto:hello@syncmind.org">hello@syncmind.org</a> ].</p>
 
 <p class="no-print"><a href="https://twitter.com/SyncMindAI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @SyncMindAI</a><script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 
@@ -215,11 +216,10 @@ Contrast comes preinstalled with a leightweight alternative to MathJax called [K
 
 
 
-
   <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">Go to Top</button>
 
 <footer style="font-family:monospace;" class="no-print">
-  <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear())); </script> Amitabh Yadav</div> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
   <nav><a href="/" >[ all posts ]</a><a href="/categories/" >[ categories ]</a><a href="/about" >[ about ]</a></nav>
 
 </footer>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Read and Organize your PDFs better | amitabh yadav</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Amitabh Yadav">
+<link rel="canonical" href="http://localhost:4000/posts/2023/read-your-pdf-better/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<style> 
+#topbtn {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 1em;
+  z-index: 99;
+  font-size: 18px;
+  border: solid black 0.5pt;
+  outline: none;
+  background-color: rgba(186, 186, 186, 0.25);
+  color: black;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+// collapsible scripts 
+.collapsible {
+
+}
+
+.collapsible::before {
+  content: "▸ " ;//"&#x25BA; ";
+}
+
+.collapsibleactive, .collapsible:hover {
+  //background-color: #555;
+  border-bottom: dotted 0.5pt red; 
+}
+
+.collapsibleactive::before {
+  content: "▾ ";//"&#x25BC; ";
+}
+
+.collapsiblecontent {
+  padding: 0 5px;
+  display: none;
+  overflow: hidden;
+  background-color: white;
+}
+
+</style>
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
+
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+
+<script src="//amitabhydv.disqus.com/embed.js" async></script>
+
+
+
+
+
+
+
+
+<article>
+<br><br><br><br><br><br>
+  <header>
+  <strong><span class="cursor-thick">|</span> <a href="/posts/2023/read-your-pdf-better/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">Read and Organize your PDFs better</a></strong></br><span><time datetime="2023-01-26T00:00:00+01:00" style="font-family: monospace;">January 26, 2023</time>  <span style="float:right; font-family: monospace; background-color: transparent; color: #18b500" class="no-print">[ <a href="/">see all posts</a> ]</span></span>
+</header>
+
+  <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <h4 id="invert-your-pdf-colors-for-a-stress-free-reading">Invert your PDF colors for a stress-free reading</h4>
+
+<p><img src="/assets/images/01inv-colors-pdf.png" alt="inverted_color_pdf" /></p>
+
+<p>In academia, we have to study a lot of portable document formats, or PDFs, as normal people say it. Digital transition to note taking can be benefitial to some to keep things organized in one place and be accessible whenever we need. This takes a toll on our eyes as prolonged exposure to screen is bad. Here is what I usually do.</p>
+
+<ol>
+  <li>
+    <p>Always set the theme to dark. This way the contrasts help reduce the stress on your eyes. In addition, I would keep the monitor/screen settings to slightly warm.</p>
+  </li>
+  <li>
+    <p>Google Chrome extensions help to invert the colors of all the websites that you visit. One of the extensions I like to use is called <a href="https://chrome.google.com/webstore/detail/dark-reader-dark/kbbbldgkhcpkmmjbjelmkjkchibeklng">DarkReader</a> which automatically inverts colors for all the sites I visit. Selectively, I can uninvert colors back to normal when needed or toggle light/dark modes for specific websites.</p>
+  </li>
+  <li>
+    <p><strong>[In Adobe Acrobat]</strong> Now, coming back to the topic at hand. How to invert the colors of PDFs. If you like to use a PDF reader software like Adobe Acrobat, you can find this setting here: <strong>Menu</strong> &gt; <strong>Preferences</strong> &gt; <strong>Accessibility</strong> &gt; <strong>Replace Document Colors</strong><br />
+I like to keep my settings to <em>White text on Black</em>.<br />
+Additionally in Adobe Acrobat, my personal preference is to have two pages displayed at once. Perhaps because, in a sense, it gives a better approximation to handling an open book. This can be done from here: <strong>Menu</strong> &gt; <strong>View</strong> &gt; <strong>Page Display</strong> &gt; <strong>Two-page View</strong></p>
+  </li>
+  <li>
+    <p><strong>[In Google Chrome]</strong> If you often open PDFs in Google Chrome (using some pdf extension) directly and start reading there. Here is one thing you can do, Press Ctrl+Shift+I. Go to the <strong>Console</strong> tab, and paste the following code.</p>
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">cover</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="dl">"</span><span class="s2">div</span><span class="dl">"</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">css</span> <span class="o">=</span> <span class="s2">`
+position: fixed;
+pointer-events: none;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: white;
+mix-blend-mode: difference;
+z-index: 1;
+`</span>
+<span class="nx">cover</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">style</span><span class="dl">"</span><span class="p">,</span> <span class="nx">css</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">cover</span><span class="p">);</span>
+</code></pre></div>    </div>
+    <p>This temporarily inverts the colors of the PDF in the open PDF document. This unfortunately needs to be repeated everytime you open a PDF in a chrome tab.</p>
+  </li>
+</ol>
+
+<h4 id="manage-you-papers-through-this-naming-scheme">Manage you papers through this naming scheme</h4>
+
+<p>When you download papers either from arxiv or online digital libraries like ACM or IEEE (in my case). It is simply overwhelming to keep a track of where those papers are and how they can be searched for.</p>
+
+<ul>
+  <li>To keep it simple, I use the following naming convention for all the research paper PDFs:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yyyy_&lt;paper title&gt;_&lt;research group&gt;_&lt;univesity&gt;.pdf
+</code></pre></div>    </div>
+    <p>Having year in the beginning makes it easier to sort, and having title, research group and the university/organization name makes it easier to search.</p>
+  </li>
+</ul>
+
+<p>The online google chrome extension called <a href="https://chrome.google.com/webstore/detail/arxiv-utils/mnhdpeipjhhkmlhlcljdjpgmilbmehij?hl=en">arxiv-utils</a> makes life much easier. It allows you to define this format in it’s settings, and adds a separate PDF download button called <strong>Direct Download</strong> on every <code class="language-plaintext highlighter-rouge">arxiv.org/abs</code> page which renames the PDF automatically in this format and downloads it for you. This is very useful.</p>
+
+<ul>
+  <li>Now how to best organize this in a directory structure? One of the directory structures I like to organize the files is the following:</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~\papers\
+	|ISCA 2021
+	|   |yyyymmdd_&lt;paper title&gt;_&lt;research group&gt;_&lt;univesity&gt;.pdf
+	|   |...
+	|ISSCC 2021
+	|   |yyyymmdd_&lt;paper title&gt;_&lt;research group&gt;_&lt;univesity&gt;.pdf
+	|   |...
+	.   .
+	.   .
+</code></pre></div></div>
+<p>Another way to organize could be through topic categories. This I feel is not the best organization. Having the papers sorted according to conferences, already gives you enough information to know the types/topic category of papers you can find in that conference.</p>
+
+<p>If you found this post useful, share it with your peers. You may also leave a comment and let me know. Happy Reading!</p>
+
+  <br> <div class="no-print">
+  <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <hr style="text-align=left; background-color:red;">
+  
+	<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    	this.page.url = http://localhost:4000/posts/2023/read-your-pdf-better/;  // Replace PAGE_URL with your page's canonical URL variable
+    	this.page.identifier = http://localhost:4000/posts/2023/read-your-pdf-better/; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://amitabhydv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a></noscript>
+
+  
+  </div>
+  
+</article>
+
+
+	<div style="position: fixed; top: -0.6pt; right:1em; background: white; border: solid black 0.5pt; color: black;" class="no-print">&nbsp; <a href="/" style="color: inherit;">blog <span style="font-weight: 1000; font-size: 15px; color: red;">| </span>amitabh yadav</a> &nbsp; </div>
+
+
+  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">Go to Top</button>
+
+<footer style="font-family:monospace;" class="no-print">
+  <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  <nav><a href="/" >[ all posts ]</a><a href="/categories/" >[ categories ]</a><a href="/about" >[ about ]</a></nav>
+
+</footer>
+
+
+<!-- Go to Top Scripts -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<!-- Collapsible Scripts-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleactive");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+</html>

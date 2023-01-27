@@ -50,6 +50,19 @@
   background-color: transparent;
 }
 
+#share-bar {
+    font-weight: normal;
+    margin: 10px 0px;
+}
+/* All buttons */
+.share-buttons {
+}
+ 
+/* Each button */
+.share-button {
+border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
+}
+
 </style>
 <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
 
@@ -132,6 +145,27 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+</script>
+
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("pageurllink");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+}
+</script>
+
+<script>
+const btn = document.getElementById('cpyurlbtn');
+btn.addEventListener('click', function handleClick() {
+  btn.textContent = 'copied';
+});
 </script>
 
 </html>

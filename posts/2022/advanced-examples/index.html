@@ -50,6 +50,19 @@
   background-color: transparent;
 }
 
+#share-bar {
+    font-weight: normal;
+    margin: 10px 0px;
+}
+/* All buttons */
+.share-buttons {
+}
+ 
+/* Each button */
+.share-button {
+border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
+}
+
 </style>
 <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
 
@@ -72,7 +85,11 @@
   <strong><span class="cursor-thick">|</span> <a href="/posts/2022/advanced-examples/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">Advanced examples</a></strong></br><span><time datetime="" style="font-family: monospace;"></time>  <span style="float:right; font-family: monospace; background-color: transparent; color: #18b500" class="no-print">[ <a href="/">see all posts</a> ]</span></span>
 </header>
 
-  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<div id="share-bar">
+	<span class="share-buttons">
+		<button onclick="myFunction()" id="cpyurlbtn" style="font-size: inherit -4px; border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 5px; position:relative; bottom:2px; border-radius: 6px;">copy url</button>
+	</span>
+</div>
   <p><img src="https://user-images.githubusercontent.com/4943215/55412536-edbba180-5567-11e9-9c70-6d33bca3f8ed.jpg" alt="Swiss Alps" /></p>
 
 <h2 id="mathjax">MathJax</h2>
@@ -129,7 +146,14 @@
 
 
   <br> <div class="no-print">
-  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div id="share-bar">
+	<span>Share this to: </span>
+	<span class="share-buttons">
+		<a href='https://twitter.com/intent/tweet?text=Advanced examples&url=https://blog.amitabhyadav.com/posts/2022/advanced-examples/' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">Twitter</a>
+		<a href='https://www.linkedin.com/shareArticle?mini=true&url=https://blog.amitabhyadav.com/posts/2022/advanced-examples/&title=Advanced examples&summary=&source=blog.amitabhyadav.com' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">LinkedIn</a>
+		<a href='https://www.facebook.com/sharer.php?t=Advanced examples&u=https://blog.amitabhyadav.com/posts/2022/advanced-examples/' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">Facebook</a>
+	</span>
+</div>
   <hr style="text-align=left; background-color:red;">
   
 	<div id="disqus_thread"></div>
@@ -209,6 +233,27 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+</script>
+
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("pageurllink");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+}
+</script>
+
+<script>
+const btn = document.getElementById('cpyurlbtn');
+btn.addEventListener('click', function handleClick() {
+  btn.textContent = 'copied';
+});
 </script>
 
 </html>

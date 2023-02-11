@@ -44,6 +44,8 @@
 }
 
 .collapsiblecontent {
+  line-height: 1.2pt;
+  margin: 0;
   padding: 0 5px;
   display: none;
   overflow: hidden;
@@ -63,6 +65,63 @@
 border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
 }
 
+/*slider switch css */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 2pt; 
+  left:1em;
+}
+.theme-switch {
+  display: inline-block;
+  height: 22px;
+  position: relative;
+  width: 48px;
+}
+
+.theme-switch input {
+  display:none;
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  background-color: #fff;
+  bottom: 2px;
+  content: "";
+  height: 18px;
+  left: 2px;
+  position: absolute;
+  transition: .4s;
+  width: 18px;
+}
+
+input:checked + .slider {
+  background-color: #0AB9A1; //#66bb6a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 </style>
 <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
 
@@ -80,13 +139,14 @@ border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.
 
 
 <article>
-<br><br><br><br><br><br>
+<br><br><br><br>
   <header>
   <strong><span class="cursor-thick">|</span> <a href="/posts/2023/the-hardware-lottery/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">The Hardware Lottery</a></strong></br><span><time datetime="2023-01-18T00:00:00+01:00" style="font-family: monospace;">January 18, 2023</time>  <span style="float:right; font-family: monospace; background-color: transparent; color: #18b500" class="no-print">[ <a href="/">see all posts</a> ]</span></span>
 </header>
 
 	<div id="share-bar">
 	<span class="share-buttons">
+<input type="text" style="display:none;" id="pageurllink" value="https://blog.amitabhyadav.com/posts/2023/the-hardware-lottery/">
 		<button onclick="myFunction()" id="cpyurlbtn" style="font-size: inherit -4px; border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 5px; position:relative; bottom:2px; border-radius: 6px;">copy url</button>
 	</span>
 </div>
@@ -182,8 +242,8 @@ Figure 1: Peak performance vs peak power of publically announced accelerators in
     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
     
     var disqus_config = function () {
-    	this.page.url = http://localhost:4000/posts/2023/the-hardware-lottery/;  // Replace PAGE_URL with your page's canonical URL variable
-    	this.page.identifier = http://localhost:4000/posts/2023/the-hardware-lottery/; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    	this.page.url = "http://localhost:4000/posts/2023/the-hardware-lottery/";  // Replace PAGE_URL with your page's canonical URL variable
+    	this.page.identifier = "http://localhost:4000/posts/2023/the-hardware-lottery/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     
     (function() { // DON'T EDIT BELOW THIS LINE
@@ -203,13 +263,27 @@ Figure 1: Peak performance vs peak power of publically announced accelerators in
 
 	<div style="position: fixed; top: -0.6pt; right:1em; background: white; border: solid black 0.5pt; color: black;" class="no-print">&nbsp; <a href="/" style="color: inherit;">blog <span style="font-weight: 1000; font-size: 15px; color: red;">| </span>amitabh yadav</a> &nbsp; </div>
 
+<!-- dark/light button -->
+  <div class="theme-switch-wrapper">
+   <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <label class="theme-switch" for="checkbox">
+    <input type="checkbox" id="checkbox" onchange="toggleDarkMode()"/>
+    <div class="slider round"></div>
+  </label>
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+  </div>
 
+<!-- dark/light button -->
   <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">Go to Top</button>
 
-<footer style="font-family:monospace;" class="no-print">
-  <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+<footer style="font-family:monospace;" class="no-print"> <!-- <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> -->
   <nav><a href="/" >[ all posts ]</a><a href="/categories/" >[ categories ]</a><a href="/about" >[ about ]</a></nav>
-
+ <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  
 </footer>
 
 
@@ -270,9 +344,24 @@ function myFunction() {
 
 <script>
 const btn = document.getElementById('cpyurlbtn');
+if (btn) {
 btn.addEventListener('click', function handleClick() {
   btn.textContent = 'copied';
 });
+}
 </script>
 
+<script>
+function toggleDarkMode() {
+	const toggleSwitch = document.getElementById("checkbox").checked;
+	var element = document.body;
+	if (toggleSwitch === true){				//dark
+		element.style.color = "#ffffff";
+		element.style.background = "#212228";
+	} else if (toggleSwitch === false) {	//light
+		element.style.color = "#212228";
+		element.style.background = "#ffffff";
+	}
+}
+</script>
 </html>

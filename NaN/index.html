@@ -26,7 +26,7 @@ footer {
 	position: fixed;
 	bottom: 0px;
 	left: 1px;
-    right: 1px;
+      right: 1px;
 	background-color: black;
 	font-family: 'OCRA Alternate';
 
@@ -131,10 +131,12 @@ h6 {
   padding-right: 20%;
 }
 
+
 .article {
 	background: #121212;
+	color: black
     padding: 10px; 
-    border: 1px solid lightgray;
+    <!-- border: 1px solid lightgray; -->
 }
 
 @media only screen and (max-width: 620px) { .content { padding: 2pt; } .categories { padding: 2pt; }  footer { padding: 2pt; }  header { padding: 2pt; }}
@@ -144,7 +146,9 @@ h6 {
 .column {
   float: left;
   text-align:center;
-  width:25%;
+  padding-top: 8px;
+  width:24%;
+  /* border:0.1pt solid gray; */
   font-family: 'OCRA Alternate';
 }
 
@@ -176,15 +180,66 @@ border-radius: 0px;
 background: rgba(0,255,0,.75); /* #E91E63; */  
 }
 
-.watermarka {
+.watermark {
 position:fixed; 
 top: 50%; 
-left: 53%; 
+left: 50%; 
 -webkit-transform: translate(-50%, -50%); 
 transform: translate(-50%, -50%); 
 height:auto;
 color:black;
-opacity:0.02;
+opacity:0.1;
+}
+
+/* overlay content */
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgb(0,0,0);
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #000000;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
 }
 
 </style>
@@ -193,24 +248,32 @@ opacity:0.02;
 <body>
 
 </header>
-<img src="/images/pr8.webp" style="width:200px;padding-bottom:2px; display: block; margin-left: auto; margin-right: auto; box-shadow: inset 0px 200px 40px 80px #000000;">
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+<img src='/images/an0nx.gif' width="200px"><br><br>
+<span id="ip-address" style="color:rgba(255,0,0,.75);font-family: 'OCRA Alternate';"></span><br><br>
+<span style="color:transparent;"> H4ck1nG is like S3X. you need breath, you feel incredible pleasure in the last step, and the best time to practice it is at night.</span>
+</div>
+</div>
+<!-- <img src="/images/pr8.webp" style="width:200px;padding-bottom:2px; display: block; margin-left: auto; margin-right: auto; box-shadow: inset 0px 200px 40px 80px #000000;"> -->
 <nav>
 <ul class="nav">
 <li><a href="/NaN/">H0M3&nbsp;</a>|</li>
-<li><a href="/" title="Assembly">x86/4RM/R1SC-V&nbsp;</a>|</li>
-<li><a href="/" title="Programming">CØĐiNG&nbsp;</a>|</li>
-<li><a href="/" title="links">.0ṉi0n&nbsp;</a>|</li>
-<li><a href="/" title="FAQ">F4Q&nbsp;</a>|</li>
-<li><a href="/" title="Forums">1nf0 / F0rum5</a></li>
+<li><a href="/NaN/riscv.html" title="Assembly">x86/4RM/R1SC-V&nbsp;</a>|</li>
+<li><a href="/NaN/code.html" title="Programming">CØĐiNG&nbsp;</a>|</li>
+<li><a href="/NaN/links.html" title="links">.0ṉi0n&nbsp;</a>|</li>
+<li><a href="/" title="exit">L0G 0ut&nbsp;</a></li>
+<!-- <li><a href="/" title="Forums">1nf0 / F0rum5</a></li> -->
 </ul>
 </nav>
 
 </header>
 <!-- your ip -->
 <p style="position:fixed; top: 20px; right:1em;text-align:right; font-family:'OCRA Alternate';"><span id="ip-address" style="color:rgba(255,0,0,.75);"></span></p>
-
+<p style="text-align:center;"><a onclick = "msggame()" style="display:block;pointer:crosshair;" id="msggamespan">Did you get the message?</a></p>
 <!-- watermark image -->
-<div class="watermarka"><img src='/images/SmartPirates.png' width="800px">G00|> LeGaL A|>\/I.C.E.:<br>&nbsp;&nbsp;&nbsp;&nbsp;'\/\/HaT N0T T0 |>0 S0 THe PiGZ \/\/0N'T <0Me!'"<br></div>
+<div class="watermark"><img src='/images/SmartPirates.png' width="800px"><br>G00|> LeGaL A|>\/I.C.E.:<br>&nbsp;&nbsp;&nbsp;&nbsp;'\/\/HaT N0T T0 |>0 S0 THe PiGZ \/\/0N'T <0Me!'"<br></div>
 <div class="categories">
 <div class="row">
   <div class="column">
@@ -219,7 +282,7 @@ opacity:0.02;
   </div>
   <div class="column">
 	<img src="/images/exploit.png" width="50pt">
-    <p style="text-align:center;">System<br>Exploitation</p>
+    <p style="text-align:center;">System<br>Exploits</p>
   </div>
   <div class="column">
 	<img src="/images/attack.png" width="50pt">
@@ -231,11 +294,14 @@ opacity:0.02;
   </div>
 </div><br>
 <br></div>
-<br><div class="content">
-<!-- content goes here -->
-	<!-- <div class="article">
-	</div><br> -->
+<br>
+
+<div class="content">
+	<!-- content goes here -->
+	<br>
+	<div class="article"></div><br> 
 </div>
+
 
 <footer>
 <ul class="navfooter">
@@ -243,6 +309,8 @@ opacity:0.02;
 <li><a href="https://cppcon.org/" title="CppCon"><img src="/images/cppcon.webp" width="120pt" style="padding-bottom:2px;"></a>&nbsp;&nbsp;</li>
 <li><a href="https://www.kali.org/" title="Kali"><img src="/images/kali.svg" width="80pt" alt="Kali Linux"/></a>&nbsp;&nbsp;</li>
 <li><a href="https://news.ycombinator.com/" title="Hacker News"><img src="/images/hn.jpg" width="140pt" alt="Kali Linux" style="padding-bottom:16px;"/></a>&nbsp;&nbsp;<li>
+<li><a href="https://www.metasploit.com/" title="Metasploit"><img src="/images/metasploit.png" width="140pt" alt="Metasploit" style="padding-bottom:14px;"/></a>&nbsp;&nbsp;<li>
+<li><a href="https://www.opengl.org/" title="OpenGL"><img src="/images/openglpng.png" width="100pt" alt="OpenGL" style="padding-bottom:14px;"/></a>&nbsp;&nbsp;<li>
 </ul>
 
 
@@ -255,6 +323,22 @@ $(document).ready(function() {
       $('#ip-address').text(data.ip);
   });	
 });
+</script>
+
+<script>
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+</script>
+<script>
+function msggame() {
+alert("so, you managed to get here. good job! \nyou are currently viewing less than 1% of the website. i have hidden secret messages all around which opens new sections. \nquestion remains, can you find them all?");
+document.getElementById("msggamespan").style.display= "none";
+}
 </script>
 
 </body>

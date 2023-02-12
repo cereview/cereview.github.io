@@ -2,7 +2,7 @@
 
 @font-face { font-family: 'PT Sans'; src: local("PT Sans Bold"), local("PTSans-Bold"), url("../fonts/PTSans-Bold.woff") format("woff"); font-weight: bold; font-style: normal; }
 
-body { background: #ffffff; color: #212228; font-family: -apple-system, "Segoe UI", "PT Sans", sans-serif; font-weight: 420; font-size: calc(0.75rem + 0.2vw); line-height: 1.45; margin-left: 1em; min-height: 98vh; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { background: #ffffff; color: #212228; font-family: -apple-system, "Segoe UI", "PT Sans", sans-serif; font-weight: 420; font-size: calc(0.75rem + 0.2vw); line-height: 1.5; margin-left: 1em; min-height: 98vh; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 @media (prefers-color-scheme: light) { body { background: #ffffff; color: #212228; } }
 
@@ -34,7 +34,7 @@ img { margin: .5em 0; }
 
 li { margin: .25em 0; }
 
-img { border-radius: 2px; max-width: 100%; height: auto; }
+img { border-radius: 5px; max-width: 100%; height: auto; }
 
 table { display: inline-block; max-width: 100%; overflow-y: scroll; border-spacing: 1px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(144, 145, 148, 0.12) inset; }
 
@@ -62,7 +62,7 @@ nav { margin: .5em -1.2em; }
 
 nav a { margin: .5em 1.2em; }
 
-.title { font-size: 1.20em; }
+.title { font-size: 1.20em; /* color: white; */ /* when using banner background*/ }
 
 .more { margin: 2em 0 1em; }
 
@@ -91,6 +91,8 @@ a:hover { border-bottom: dotted 1.5px; text-decoration: none; }
 .rouge-table .gl pre { margin: 0 1.5em 0 .25em; opacity: .5; }
 
 .cursor-thick { font-weight: 1000; font-size: 30px; color: red; }
+
+.an0ny:hover { border-bottom: none; cursor: no-drop; text-decoration: none; }
 
 .highlight pre { background: rgba(47, 48, 57, 0.9); color: white; }
 
@@ -174,7 +176,7 @@ a:hover { border-bottom: dotted 1.5px; text-decoration: none; }
 
 @media (min-width: 40em) { body > header, body > article, body > footer { padding: 0.3em calc(45% - 17.5em); } }
 
-body > header { box-shadow: 0 0 0.6em rgba(33, 34, 40, 0.04); border-bottom: 1px solid rgba(144, 145, 148, 0.14); }
+body > header { /* background-image: url('../../images/banner.jpg') */ box-shadow: 0 0 0.6em rgba(33, 34, 40, 0.04); border-bottom: 1px solid rgba(144, 145, 148, 0.14); }
 
 body > footer { box-shadow: 0 0 0.6em rgba(33, 34, 40, 0.04) inset; border-top: 1px solid rgba(144, 145, 148, 0.14); opacity: .9; }
 

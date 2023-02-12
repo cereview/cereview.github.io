@@ -70,7 +70,7 @@ border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.
   display: flex;
   align-items: center;
   position: fixed;
-  top: 2pt; 
+  top: 7pt; 
   left:1em;
 }
 .theme-switch {
@@ -142,7 +142,7 @@ input:checked + .slider:before {
   <article>
   <header><h3> </h3></header>
   <!-- <hr style="width: 80%; text-align=left; background-color:red;"> -->
-  <ul class="archive">
+  <ul style="font-size: 1.12em; line-height: 1.35; list-style-type: none;  margin: 0;  padding: 0;">
     
     <li>
       <time datetime="2023-01-26T00:00:00+01:00" style="font-family:monospace; font-size:0.75em;">[ 2023-Jan-26 ]</time>&emsp;<a href="/posts/2023/read-your-pdf-better/" style="border-bottom: none;">Read and Organize your PDFs better</a>      <!-- <time datetime="2023-01-26T00:00:00+01:00" style="font-family:monospace; color: gray; font-size:0.8em; float: right;">2023-01-26</time> -->
@@ -176,7 +176,7 @@ input:checked + .slider:before {
 
 <footer style="font-family:monospace;" class="no-print"> <!-- <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> -->
   <nav><a href="/" class="selected">[ all posts ]</a><a href="/categories/" >[ categories ]</a><a href="/about" >[ about ]</a></nav>
- <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+ <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><span><a href="/NaN/" class="an0ny"><img id="an0n" style="filter:invert(10%);" src='/images/m.png' alt="an0nym0u5_c0113ctiv3" width="20pt" height=auto;></span> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
   
 </footer>
 
@@ -252,10 +252,14 @@ function toggleDarkMode() {
 	if (toggleSwitch === true){				//dark
 		element.style.color = "#ffffff";
 		element.style.background = "#212228";
+		document.getElementById("an0n").style.filter = "invert(85%)";
 	} else if (toggleSwitch === false) {	//light
 		element.style.color = "#212228";
 		element.style.background = "#ffffff";
+		document.getElementById("an0n").style.filter = "invert(10%)";
+
 	}
 }
 </script>
+
 </html>

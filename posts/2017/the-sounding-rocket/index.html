@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>On the Electronics Systems of Experimental Sounding Rockets | amitabh yadav</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Amitabh Yadav">
+<link rel="canonical" href="http://localhost:4000/posts/2017/the-sounding-rocket/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<style> 
+	#topbtn {
+	  display: none;
+	  position: fixed;
+	  bottom: 125px;
+	  right: 0.5em;
+	  z-index: 99;
+	  font-size: 18px;
+	  border: solid black 0.5pt;
+	  outline: none;
+	  background-color: rgba(186, 186, 186, 0.25);
+	  color: black;
+	  cursor: pointer;
+	  padding: 6px;
+	  border-radius: 6px;
+	}
+
+	// collapsible scripts 
+	.collapsible {
+
+	}
+
+	.collapsible::before {
+	  content: "▸ " ;//"&#x25BA; ";
+	}
+
+	.collapsibleactive, .collapsible:hover {
+	  //background-color: #555;
+	  border-bottom: dotted 0.5pt red; 
+	}
+
+	.collapsibleactive::before {
+	  content: "▾ ";//"&#x25BC; ";
+	}
+
+	.collapsiblecontent {
+	  line-height: 1.35;
+	  margin: 0;
+	  padding: 0 5px;
+	  display: none;
+	  overflow: hidden;
+	  background-color: transparent;
+	}
+
+	#share-bar {
+		font-weight: normal;
+		margin: 10px 0px;
+	}
+	/* All buttons */
+	.share-buttons {
+	}
+	 
+	/* Each button */
+	.share-button {
+	border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
+	}
+
+	/*slider switch css */
+	.theme-switch-wrapper {
+	  display: flex;
+	  align-items: center;
+	  position: fixed;
+	  top: 7pt; 
+	  left:1em;
+	}
+	.theme-switch {
+	  display: inline-block;
+	  height: 22px;
+	  position: relative;
+	  width: 48px;
+	}
+
+	.theme-switch input {
+	  display:none;
+	}
+
+	.slider {
+	  background-color: #0AB9A1;
+	  bottom: 0;
+	  cursor: pointer;
+	  left: 0;
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	  transition: .4s;
+	}
+
+	.slider:before {
+	  background-color: #fff;
+	  bottom: 2px;
+	  content: "";
+	  height: 18px;
+	  left: 28px;
+	  position: absolute;
+	  transition: .4s;
+	  width: 18px;
+	}
+
+	input:checked + .slider {
+	  background-color: lightgray; //#66bb6a;
+	}
+
+	input:checked + .slider:before {
+	  transform: translateX(-26px);
+	}
+
+	.slider.round {
+	  border-radius: 34px;
+	}
+
+	.slider.round:before {
+	  border-radius: 50%;
+	}
+
+</style>
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
+
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+
+<script src="//amitabhydv.disqus.com/embed.js" async></script>
+
+
+
+
+
+
+
+
+<article>
+<br><br>
+  <header>
+  <strong><span class="cursor-thick">|</span> <a href="/posts/2017/the-sounding-rocket/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">On the Electronics Systems of Experimental Sounding Rockets</a></strong></br><span><time datetime="2017-10-17T00:00:00+02:00" style="font-family: monospace;">October 17, 2017</time>  <span style="float:right; font-family: monospace; background-color: transparent; color: #0AB9A1" class="no-print">[ <a href="/">see all posts</a> ]</span></span>
+</header>
+
+	<div id="share-bar">
+	<span class="share-buttons">
+<input type="text" style="display:none;" id="pageurllink" value="https://blog.amitabhyadav.com/posts/2017/the-sounding-rocket/">
+		<button onclick="myFunction()" id="cpyurlbtn" class="no-print" style="font-size: inherit -4px; border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 5px; position:relative; bottom:2px; border-radius: 6px;">copy url</button>
+	</span>
+</div>
+  <p><img src="/assets/images/stratosiii.jpg" alt="stratos iii" /></p>
+
+<p>The idea of rockets was conceived well before the idea of flight. It was well before even Sir Issac Newton gave his laws of motion. Interestingly, it is his third law of motion that governs the flight of a rocket.</p>
+
+<blockquote>
+  <p>For every action, there is an equal and opposite reaction.</p>
+</blockquote>
+
+<p>The earliest mention of the rocket was in 400BC in a Greek story, where a character Archytas uses a wooden pigeon suspended by wires and propelled by steam to amaze and mystify the Tarentum locals. This is related to the history of rockets for the simple fact that it is the earliest known mention of a man using Newton’s Third Law of action and reaction as a means of propulsion.</p>
+
+<p>The actual gun powered rocket that we know of today was developed first in China back in the 13th century. But is that possible? There were no computers back then!</p>
+
+<p>With time, the idea of rocketry and rocket applications has undergone tremendous changes. First developed as a firework show and then warfare. Today’s rockets find applications in atmospheric research, space applications, payload/satellite launch and would someday in transportation. A <a href="https://www.reddit.com/r/spacex/comments/64ew8x/falcon_9_a_systems_overview/">systems overview of Falcon 9</a> rocket will surely give you a good idea on the interdependencies of a rocket avionics systems. But, here we won’t be discussed too much on the rockets for space launch. We’ll start with something simpler, a Sounding Rocket.</p>
+
+<p>It may be a simpler in design, but sounding rockets are extremely complicated to build, difficult to use and (often) risky to handle. According to definition by ISRO, the Indian Space Research Organisation,”Sounding Rockets are one or two-stage solid propellant rockets used for probing the upper atmospheric regions and for space research.” There are different altitude ranges for developing sounding rockets. The simplest cover the range from 1 to 10km. More complicated ones go beyond up till 20-30km. The sounding rockets developed by commercial space/rocket companies go beyond 500km (in space).</p>
+
+<p>How do we determine the altitude to aim for, you ask? It depends on the application. If its atmospheric research, we aim for altitudes below the <strong>Karman line</strong> such an altitude of 50-80 km is apt. If it is space research, we go beyond 100km. For a comparison, you can imagine that the International Space Station revolves around the early at 408km altitude; and the space shuttle missions orbital altitudes were in the range of 304 kilometers to 528 kilometers. That’s the region you can experience <strong>microgravity</strong>.</p>
+
+<p>A sounding rocket is launched by ‘ignition’ of the Rocket engine (or motor) which is often done through an e-match. But once a rocket is launched, how do we use it, operate it and possibly guide it? It is the sole responsibility of the onboard electronics system, sensing systems, telemetry systems, control system, payload deployment and recovery systems to check the state of rockets and take the necessary decisions, without a human supervision.</p>
+
+<p><a href="https://dare.tudelft.nl/stratos3/">An example of sounding rocket.</a></p>
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/_b_xWWojIiM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+
+<p>Let’s go through the basic operation of a rocket:</p>
+
+<ol>
+  <li>
+    <p>Rocket Launch - A manually driven electronic system for igniting the rocket engine. Often this system is made with an engine valve control (as the Flight Termination System). A rocket launch can be dangerous and all necessary steps must be taken before any launch parameters considered. An inbuilt system check mechanism is made that checks for connectivity and proper functioning of each of the onboard electronics, sensor, and telemetry. Only after a successful check, it the launch allowed.</p>
+  </li>
+  <li>
+    <p>Lift Off - The ignition chamber of the rocket is the lowest and has a burnout time in seconds. Within seconds of burnout, the rocket gains enough inertia to cross miles in the sky. All this while, the sensor subsystem inside records and analyses the data from the various onboard sensor such as temperature, barometric pressure (for altitude), time, spin, acceleration, position (GPS) and others. All this data helps the rocket to be aware of its exact position and state at all points during a flight. This data is usually sampled every microsecond from each sensor.</p>
+  </li>
+</ol>
+
+<p>It is essential that rocket behaves in the determined way else the consequences can be bad. For this purpose, a trajectory is predefined for a rocket and everything is designed to strictly achieve that. Advanced control of sounding rocket consists of canards, driven by a separate servo that allows the rocket to actively stabilize its flight trajectory.</p>
+
+<ol>
+  <li>
+    <p>Apogee - Rockets follow a projectile motion during flight, and no matter how fast it can go, face it, it comes to a rest at some point. This is the highest point, called apogee. To achieve, highest possible apogee, a correctly implemented trajectory, and a strongly stabilized flight are essential. At this point, we need our rockets to deploy the payload. It is necessary that the payload is deployed after ascent has ceased and preferably near the apogee. At this point, the computing system of the rocket decides (based on the sensor data) to actuate the payload release mechanism (often implemented by servos). This decision making is crucial. A wrong decision can completely sabotage the mission. Inaccurate release, say during ascent, can interfere with rocket trajectory and can misguide a rocket in habitated areas. No matter how small a rocket is, a fall from that height is extremely dangerous. Therefore, for advanced control, we implement a triple modular redundancy in the system for accurate decision making.</p>
+  </li>
+  <li>
+    <p>Decent - As soon as the decent of rocket begins, it is essential to keep a track of the rocket’s position, speed and orientation in the 3-dimensional space. A rocket falling from a height of 80km can easily cross the sound barrier while decent. To stop the devastating aftermath, we equip the rocket with parachutes. And interestingly there are two of these - the drogue-chute and the main-chute. Drogue-chute is bestowed by the responsibility for initial deacceleration. This is smaller than the main-chute, as a sudden impact on the rocket body due to parachute ejection can easily create an impulse to tear the rocket apart. Further, the high altitude wind currents can absurdly drift the rocket far away from the expected landing site. This is usually done at a predetermined altitude but along with a manual override from the ground station. The main chute is deployed only after a considerable decent has been achieved. This is again governed by the rocket’s electronics control system.</p>
+  </li>
+  <li>
+    <p>Landing and Recovery - Let’s assume, everything went well and we have landed safely. Know it and accept it, this is rocketry and even after all the cake and watermelon, there is a good chance that <strong>anything can go wrong</strong>. Therefore, it is supremely important to take every possible step of caution.</p>
+  </li>
+</ol>
+
+<p>So, we have landed but we need data and recover the rocket body. It has survived and is well enough <strong>to be reused</strong>. The onboard GPS is always connected with the transmitter that lets the ground control be aware of the rocket’s position at all times and enables them to recover it after the successful landing.</p>
+
+<p>The ground control is a completely electronic and computing system that always keeps a track of the rocket performance and trajectory. It is in constant contact with the rocket and often controls the functioning of the onboard systems such as flight stabilization using canards, manual parachute deployment, manual mission abort (closing engine valve to cut propellant supply), recovery etc.</p>
+
+<p>After all these operations done successfully, can we say, we have mentioned all the important points of a rocket electronics system? But, we forget the most important of all. One without which, none of the systems can work. And that is power. All electronics run on power and in such an agitated environment, the power consideration is highly demanded. A single glitch from the power system can cause the system to power down or worst, reset. Not to mention, the consequences. Thus, power is at the pinnacle of rocket electronics design. One must always start with formulating a power budget for the complete system. I’d say it exclusively here, “This is the first step” in rocket electronics design.</p>
+
+<p>A perfect rocket would also implement video recording and telemetry system (my opinion). Because after all the effort, one definitely want to see how well it performed and all the phases it went through - looking far on the straight horizon all across, to reaching the point where you see the earth getting its curve, to seeing the change in color of the sky from blue to dark horizon of space and to see the contrast of day and night in the sky as the rocket spins about its axis.</p>
+
+<p>It is after all these efforts and constant work and support from all the divisions of the rocket team, that the magnificent flies. Contrary to my notion, that I would not be able to summarise a rocket electronic system in a general and ‘brief’ manner, I seem to have covered a considerable ground here. But, let me just give you a warm gist that rocket electronics is vast and complicated- it brings together the power electronics team, computing team, algorithms team, data handling team, embedded systems team, robotics team and RF and Microwave team to handle all the operations of the electronic system. But if it weren’t that complicated, the old joke <em>‘It ain’t rocket science’</em> wouldn’t be so funny.</p>
+
+<p>If you are interested into rocketry, <em>Introduction to Rocket Science and Engineering</em>, Travis S. Taylor, CRC Press is an interesting read.</p>
+
+<p><strong>About:</strong> I wrote this article when I was working as a part of the Delft Aerospace Rocket Engineering (DARE) Team. I was responsible for designing the electronics systems for the flagship sounding rocket of that year, Stratos-III, that was being developed to break the then European altitude record for the student-built experimental sounding rocket. A video of the launch is <a href="https://www.youtube.com/watch?v=_b_xWWojIiM">available here</a>.</p>
+
+<p>[published originally on <a href="https://www.linkedin.com/pulse/electronics-systems-experimental-sounding-rockets-amitabh-yadav/">linkedin</a> 🔗]</p>
+
+  <br> <div class="no-print">
+<div id="share-bar">
+	<span>Share this to: </span>
+	<span class="share-buttons">
+		<a href='https://twitter.com/intent/tweet?text=On the Electronics Systems of Experimental Sounding Rockets&url=https://blog.amitabhyadav.com/posts/2017/the-sounding-rocket/' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">Twitter</a>
+		<a href='https://www.linkedin.com/shareArticle?mini=true&url=https://blog.amitabhyadav.com/posts/2017/the-sounding-rocket/&title=On the Electronics Systems of Experimental Sounding Rockets&summary=&source=blog.amitabhyadav.com' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">LinkedIn</a>
+		<a href='https://www.facebook.com/sharer.php?t=On the Electronics Systems of Experimental Sounding Rockets&u=https://blog.amitabhyadav.com/posts/2017/the-sounding-rocket/' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">Facebook</a>
+	</span>
+</div><br>
+  <div style="font-family: monospace; color: grey;">[This page is optimized for printing. Please consider saving paper by refraining from printing unless absolutely necessary.]</div>
+  <hr style="text-align=left; background-color:red;">
+  
+	<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    	this.page.url = "http://localhost:4000/posts/2017/the-sounding-rocket/";  // Replace PAGE_URL with your page's canonical URL variable
+    	this.page.identifier = "http://localhost:4000/posts/2017/the-sounding-rocket/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://amitabhydv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a></noscript>
+
+  
+  </div>
+  
+</article>
+
+<!--  -->
+<span></span>
+<!--  -->
+	<div style="position: fixed; top: -0.6pt; right:1em; background: white; border: solid black 0.5pt; color: black;" class="no-print">&nbsp; <a href="/" style="color: inherit;">blog <span style="font-weight: 1000; font-size: 15px; color: red;">| </span>amitabh yadav</a> &nbsp; </div>
+
+<!-- dark/light button -->
+  <div class="theme-switch-wrapper no-print">
+   <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <label class="theme-switch" for="checkbox">
+    <input type="checkbox" id="checkbox" onchange="toggleDarkMode()"/>
+    <div class="slider round"></div>
+  </label>
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+  </div>
+
+<!-- dark/light button -->
+  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">&nbsp;&#x1F845;&nbsp;</button>
+
+<footer style="font-family:monospace;" class="no-print"> <!-- <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> -->
+  <nav><a href="/" >[ all posts ]</a><a href="/categories/" >[ categories ]</a><a href="/about" >[ about ]</a></nav>
+ <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><span><a href="/NaN/" class="an0ny"><img id="an0n" style="filter:invert(10%);" src='/images/m.png' alt="an0nym0u5_c0113ctiv3" width="20pt" height=auto;></span> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  
+</footer>
+
+
+<!-- Go to Top Scripts -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<!-- Collapsible Scripts-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleactive");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("pageurllink");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+}
+</script>
+
+<script>
+const btn = document.getElementById('cpyurlbtn');
+if (btn) {
+btn.addEventListener('click', function handleClick() {
+  btn.textContent = 'copied';
+});
+}
+</script>
+
+<script>
+window.onload = function () {setColorScheme()};
+
+function setColorScheme() {
+	let colorScheme = localStorage.getItem("perplextiesBG");
+	if (colorScheme === "dark") {
+		document.getElementById("checkbox").checked = false;
+		document.body.style.background = "#212228";	//dark background
+		document.body.style.color = "#ffffff";
+	} else if (colorScheme === "light") {
+		document.getElementById("checkbox").checked = true;
+		document.body.style.background = "#E8F2FC"; 	// light background
+		document.body.style.color = "#212228";
+	} else {}
+}
+</script>
+
+<script>
+function toggleDarkMode() {
+	const toggleSwitch = document.getElementById("checkbox").checked;
+	var element = document.body;
+	if (toggleSwitch === false){				// dark
+		element.style.color = "#ffffff";
+		element.style.background = "#212228";
+		document.getElementById("an0n").style.filter = "invert(95%)";
+		localStorage.setItem("perplextiesBG", "dark");
+	} else if (toggleSwitch === true) {			// light
+		element.style.color = "#212228";
+		element.style.background = "#E8F2FC";
+		document.getElementById("an0n").style.filter = "invert(10%)";
+		localStorage.setItem("perplextiesBG", "light");
+	}
+}
+</script>
+
+</html>

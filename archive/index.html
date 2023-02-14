@@ -9,118 +9,118 @@
 <link rel="stylesheet" href="/assets/css/index.css">
 
 <style> 
-#topbtn {
-  display: none;
-  position: fixed;
-  bottom: 50px;
-  right: 1em;
-  z-index: 99;
-  font-size: 18px;
-  border: solid black 0.5pt;
-  outline: none;
-  background-color: rgba(186, 186, 186, 0.25);
-  color: black;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 6px;
-}
+	#topbtn {
+	  display: none;
+	  position: fixed;
+	  bottom: 125px;
+	  right: 0.5em;
+	  z-index: 99;
+	  font-size: 18px;
+	  border: solid black 0.5pt;
+	  outline: none;
+	  background-color: rgba(186, 186, 186, 0.25);
+	  color: black;
+	  cursor: pointer;
+	  padding: 6px;
+	  border-radius: 6px;
+	}
 
-// collapsible scripts 
-.collapsible {
+	// collapsible scripts 
+	.collapsible {
 
-}
+	}
 
-.collapsible::before {
-  content: "▸ " ;//"&#x25BA; ";
-}
+	.collapsible::before {
+	  content: "▸ " ;//"&#x25BA; ";
+	}
 
-.collapsibleactive, .collapsible:hover {
-  //background-color: #555;
-  border-bottom: dotted 0.5pt red; 
-}
+	.collapsibleactive, .collapsible:hover {
+	  //background-color: #555;
+	  border-bottom: dotted 0.5pt red; 
+	}
 
-.collapsibleactive::before {
-  content: "▾ ";//"&#x25BC; ";
-}
+	.collapsibleactive::before {
+	  content: "▾ ";//"&#x25BC; ";
+	}
 
-.collapsiblecontent {
-  line-height: 1.2pt;
-  margin: 0;
-  padding: 0 5px;
-  display: none;
-  overflow: hidden;
-  background-color: transparent;
-}
+	.collapsiblecontent {
+	  line-height: 1.35;
+	  margin: 0;
+	  padding: 0 5px;
+	  display: none;
+	  overflow: hidden;
+	  background-color: transparent;
+	}
 
-#share-bar {
-    font-weight: normal;
-    margin: 10px 0px;
-}
-/* All buttons */
-.share-buttons {
-}
- 
-/* Each button */
-.share-button {
-border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
-}
+	#share-bar {
+		font-weight: normal;
+		margin: 10px 0px;
+	}
+	/* All buttons */
+	.share-buttons {
+	}
+	 
+	/* Each button */
+	.share-button {
+	border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
+	}
 
-/*slider switch css */
-.theme-switch-wrapper {
-  display: flex;
-  align-items: center;
-  position: fixed;
-  top: 7pt; 
-  left:1em;
-}
-.theme-switch {
-  display: inline-block;
-  height: 22px;
-  position: relative;
-  width: 48px;
-}
+	/*slider switch css */
+	.theme-switch-wrapper {
+	  display: flex;
+	  align-items: center;
+	  position: fixed;
+	  top: 7pt; 
+	  left:1em;
+	}
+	.theme-switch {
+	  display: inline-block;
+	  height: 22px;
+	  position: relative;
+	  width: 48px;
+	}
 
-.theme-switch input {
-  display:none;
-}
+	.theme-switch input {
+	  display:none;
+	}
 
-.slider {
-  background-color: #ccc;
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transition: .4s;
-}
+	.slider {
+	  background-color: #0AB9A1;
+	  bottom: 0;
+	  cursor: pointer;
+	  left: 0;
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	  transition: .4s;
+	}
 
-.slider:before {
-  background-color: #fff;
-  bottom: 2px;
-  content: "";
-  height: 18px;
-  left: 2px;
-  position: absolute;
-  transition: .4s;
-  width: 18px;
-}
+	.slider:before {
+	  background-color: #fff;
+	  bottom: 2px;
+	  content: "";
+	  height: 18px;
+	  left: 28px;
+	  position: absolute;
+	  transition: .4s;
+	  width: 18px;
+	}
 
-input:checked + .slider {
-  background-color: #0AB9A1; //#66bb6a;
-}
+	input:checked + .slider {
+	  background-color: lightgray; //#66bb6a;
+	}
 
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
+	input:checked + .slider:before {
+	  transform: translateX(-26px);
+	}
 
-.slider.round {
-  border-radius: 34px;
-}
+	.slider.round {
+	  border-radius: 34px;
+	}
 
-.slider.round:before {
-  border-radius: 50%;
-}
+	.slider.round:before {
+	  border-radius: 50%;
+	}
 
 </style>
 <link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
@@ -141,6 +141,8 @@ input:checked + .slider:before {
 <article>
   <header><h3>Archive</h3></header>
   <!-- <hr style="width: 80%; text-align=left; background-color:red;"> -->
+  <!-- <span style="font-size:8pt"><strong>Pinned Posts</strong></span><br><a title="work in progress">[Computer Architecture: A Handy Reference]</a><span title="work in progress"> &#9997;</span><br><br> -->
+<strong>Posts</strong>
   <ul style="font-size: 1.12em; line-height: 1.35; list-style-type: none;  margin: 0;  padding: 0;">
     
     <li>
@@ -151,12 +153,26 @@ input:checked + .slider:before {
       <time datetime="2023-01-18T00:00:00+01:00" style="font-family:monospace; font-size:0.75em;">[ 2023-Jan-18 ]</time>&emsp;<a href="/posts/2023/the-hardware-lottery/" style="border-bottom: none;">The Hardware Lottery</a>      <!-- <time datetime="2023-01-18T00:00:00+01:00" style="font-family:monospace; color: gray; font-size:0.8em; float: right;">2023-01-18</time> -->
     </li>
     
+    <li>
+      <time datetime="2020-05-30T00:00:00+02:00" style="font-family:monospace; font-size:0.75em;">[ 2020-May-30 ]</time>&emsp;<a href="/posts/2020/marks-matter/" style="border-bottom: none;">How to succeed as a non-IIT Bachelor student in India?</a>      <!-- <time datetime="2020-05-30T00:00:00+02:00" style="font-family:monospace; color: gray; font-size:0.8em; float: right;">2020-05-30</time> -->
+    </li>
+    
+    <li>
+      <time datetime="2017-10-17T00:00:00+02:00" style="font-family:monospace; font-size:0.75em;">[ 2017-Oct-17 ]</time>&emsp;<a href="/posts/2017/the-sounding-rocket/" style="border-bottom: none;">On the Electronics Systems of Experimental Sounding Rockets</a>      <!-- <time datetime="2017-10-17T00:00:00+02:00" style="font-family:monospace; color: gray; font-size:0.8em; float: right;">2017-10-17</time> -->
+    </li>
+    
+    <li>
+      <time datetime="2016-12-01T00:00:00+01:00" style="font-family:monospace; font-size:0.75em;">[ 2016-Dec-01 ]</time>&emsp;<a href="/posts/2016/first-internship/" style="border-bottom: none;">What can help when nobody is paying attention to you on your internship?</a>      <!-- <time datetime="2016-12-01T00:00:00+01:00" style="font-family:monospace; color: gray; font-size:0.8em; float: right;">2016-12-01</time> -->
+    </li>
+    
 </article>
 
 
+<!--  -->
+	<div style="position: fixed; top: -0.6pt; right:1em; background: white; border: solid black 0.5pt; color: black;" class="no-print">&nbsp; <a href="/" style="color: inherit;">blog <span style="font-weight: 1000; font-size: 15px; color: red;">| </span>amitabh yadav</a> &nbsp; </div>
 
 <!-- dark/light button -->
-  <div class="theme-switch-wrapper">
+  <div class="theme-switch-wrapper no-print">
    <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
     <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
   </svg>
@@ -170,7 +186,7 @@ input:checked + .slider:before {
   </div>
 
 <!-- dark/light button -->
-  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">Go to Top</button>
+  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">&nbsp;&#x1F845;&nbsp;</button>
 
 <footer style="font-family:monospace;" class="no-print"> <!-- <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> -->
   <nav><a href="/" >[ all posts ]</a><a href="/categories/" >[ categories ]</a><a href="/about" >[ about ]</a></nav>
@@ -244,18 +260,36 @@ btn.addEventListener('click', function handleClick() {
 </script>
 
 <script>
+window.onload = function () {setColorScheme()};
+
+function setColorScheme() {
+	let colorScheme = localStorage.getItem("perplextiesBG");
+	if (colorScheme === "dark") {
+		document.getElementById("checkbox").checked = false;
+		document.body.style.background = "#212228";	//dark background
+		document.body.style.color = "#ffffff";
+	} else if (colorScheme === "light") {
+		document.getElementById("checkbox").checked = true;
+		document.body.style.background = "#E8F2FC"; 	// light background
+		document.body.style.color = "#212228";
+	} else {}
+}
+</script>
+
+<script>
 function toggleDarkMode() {
 	const toggleSwitch = document.getElementById("checkbox").checked;
 	var element = document.body;
-	if (toggleSwitch === true){				//dark
+	if (toggleSwitch === false){				// dark
 		element.style.color = "#ffffff";
 		element.style.background = "#212228";
-		document.getElementById("an0n").style.filter = "invert(85%)";
-	} else if (toggleSwitch === false) {	//light
+		document.getElementById("an0n").style.filter = "invert(95%)";
+		localStorage.setItem("perplextiesBG", "dark");
+	} else if (toggleSwitch === true) {			// light
 		element.style.color = "#212228";
-		element.style.background = "#ffffff";
+		element.style.background = "#E8F2FC";
 		document.getElementById("an0n").style.filter = "invert(10%)";
-
+		localStorage.setItem("perplextiesBG", "light");
 	}
 }
 </script>

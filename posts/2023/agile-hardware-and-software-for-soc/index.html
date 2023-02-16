@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>An outlook on Agile Hardware Development Methodology for accelerating full-stack development of Deep Learning SoCs | amitabh yadav</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Amitabh Yadav">
+<link rel="canonical" href="http://localhost:4000/posts/2023/agile-hardware-and-software-for-soc/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<style> 
+	#topbtn {
+	  display: none;
+	  position: fixed;
+	  bottom: 125px;
+	  right: 0.5em;
+	  z-index: 99;
+	  font-size: 18px;
+	  border: solid black 0.5pt;
+	  outline: none;
+	  background-color: rgba(186, 186, 186, 0.25);
+	  color: black;
+	  cursor: pointer;
+	  padding: 6px;
+	  border-radius: 6px;
+	}
+
+	// collapsible scripts 
+	.collapsible {
+
+	}
+
+	.collapsible::before {
+	  content: "▸ " ;//"&#x25BA; ";
+	}
+
+	.collapsibleactive, .collapsible:hover {
+	  //background-color: #555;
+	  border-bottom: dotted 0.5pt red; 
+	}
+
+	.collapsibleactive::before {
+	  content: "▾ ";//"&#x25BC; ";
+	}
+
+	.collapsiblecontent {
+	  line-height: 1.35;
+	  margin: 0;
+	  padding: 0 5px;
+	  display: none;
+	  overflow: hidden;
+	  background-color: transparent;
+	}
+
+	#share-bar {
+		font-weight: normal;
+		margin: 10px 0px;
+	}
+	/* All buttons */
+	.share-buttons {
+	}
+	 
+	/* Each button */
+	.share-button {
+	border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
+	}
+
+	/*slider switch css */
+	.theme-switch-wrapper {
+	  display: flex;
+	  align-items: center;
+	  position: fixed;
+	  top: 7pt; 
+	  left:1em;
+	}
+	.theme-switch {
+	  display: inline-block;
+	  height: 22px;
+	  position: relative;
+	  width: 48px;
+	}
+
+	.theme-switch input {
+	  display:none;
+	}
+
+	.slider {
+	  background-color: #0AB9A1;
+	  bottom: 0;
+	  cursor: pointer;
+	  left: 0;
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	  transition: .4s;
+	}
+
+	.slider:before {
+	  background-color: #fff;
+	  bottom: 2px;
+	  content: "";
+	  height: 18px;
+	  left: 28px;
+	  position: absolute;
+	  transition: .4s;
+	  width: 18px;
+	}
+
+	input:checked + .slider {
+	  background-color: lightgray; //#66bb6a;
+	}
+
+	input:checked + .slider:before {
+	  transform: translateX(-26px);
+	}
+
+	.slider.round {
+	  border-radius: 34px;
+	}
+
+	.slider.round:before {
+	  border-radius: 50%;
+	}
+
+</style>
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
+
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+
+<script src="//amitabhydv.disqus.com/embed.js" async></script>
+
+
+
+
+
+
+
+
+<article>
+<br><br>
+  <header>
+  <strong><span class="cursor-thick">|</span> <a href="/posts/2023/agile-hardware-and-software-for-soc/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">An outlook on Agile Hardware Development Methodology for accelerating full-stack development of Deep Learning SoCs</a></strong></br><span><time datetime="2023-02-03T00:00:00+01:00" style="font-family: monospace;">February 03, 2023</time> &emsp;
+
+<input type="text" style="display:none;" id="pageurllink" value="https://blog.amitabhyadav.com/posts/2023/agile-hardware-and-software-for-soc/">
+<button onclick="myFunction()" id="cpyurlbtn" class="no-print" style="font-size: inherit -4px; border: solid black 0.5pt;outline: none; color:black; background-color: rgba(186, 186, 186, 0.25);cursor: pointer; padding: 4px; position:relative; bottom:2px; border-radius: 2px;">copy url</button>
+
+<span style="float:right; font-family: monospace; background-color: transparent; color: #0AB9A1" class="no-print">[ <a href="/">see all posts</a> ]</span></span>
+</header>
+
+
+  <h4 id="1-future-computing-systems-where-are-we-heading-post-moore-era-hooker-2018-horowitz-2014">1. Future Computing Systems: Where are we heading post-Moore era? [Hooker 2018, Horowitz 2014]</h4>
+
+<p>In the post Moore’s Law era, parallelism isn’t going to be the boat for us to set sail for the next generation of computing systems; power is going to be the principal factor dictating the research direction for heterogeneous accelerators. The architectural challenge is to maintain a balance between performance and functional flexibility; and the key QoR metrics to report are computational capability (GOps) and power efficiency (GOps/W), overall computational effectiveness (precision) and full-stack integration. This is highlighted in the AI and ML accelerator trends (Figure 1).</p>
+
+<p><img src="/assets/images/ai_accelerators_2022.png" alt="Figure 1: Peak performance vs peak power of publically announced accelerators in 2022" />
+Figure 1: Peak performance vs peak power of publically announced accelerators in 2022 <a href="https://www.arxiv.org/abs/2210.04055">[arxiv:2210.04055]</a></p>
+
+<p>In modern DNN accelerators, the architecture used to train a deep learning model affects the model’s accuracy, speed and even its ability to generalise to new data. This creates a massive multi-dimensional design space to find pareto-optimal configuration per use-case. Typically, a new reliable architecture design from ideation to tape-out takes three to four years by a team - which besides time, incurs a huge development cost (multi-Million $). This motivates us to explore an ASIC development methodology that should allow application experts to configure the lower layers of the computing stack to create these new efficient systems through high-level synthesis, and design reuse through rich parameterization and incremental extensions. This disparages the Waterfall model that has been adopted since the inception of integrated circuits to an Agile model for continuous development and integration for DNN accelerators.</p>
+
+<p>In this short article, we discuss two of the Agile Hardware-Software Co-design Frameworks, namely, Agile Hardware (AHA) initiative at Stanford Accelerate Lab and Chipyard Framework developed at UC Berkeley’s ADEPT (Agile Design of Efficient Processing Technologies) Lab (now, SLICE lab), with emphasis on their respective accelerator architectures and implemented optimizations for accelerating deep neural networks. In section 2, we discuss in detail the Gemmini accelerator and in section 3 we dive into the details of Coarse-Grained Reconfigurable Array (CGRA). Finally, in section 4, we compare and contrast the two approaches, identify their strengths and weaknesses, and present our conclusions.</p>
+
+<h4 id="2-chipyard-and-gemmini">2. Chipyard and Gemmini</h4>
+
+<p>Chipyard + Gemmini are one of the more mature open-source frameworks for custom SoC-accelerator generators (aside from industry, e.g. ASIP designer) that adopts an agile approach. Chipyard is a complete suite for physically realisable SoC design, simulation, validation and full-stack integration to RISC-V and BOOM cores via RoCC port of TileLink to enable configurable generator-based accelerators (such as Gemmini) IP blocks that support rich parameterization and RISC-V ISA extensions. The number of tools are extensive and it would be unjust to briefly summarise. Figure below shows Chipyard workflow and Gemmini integration and attempts to share a glimpse.</p>
+
+<p>![img2]
+Gemmini is a matrix multiplication accelerator containing:</p>
+
+<ul>
+  <li>2-tier organised Systolic array for flexible microarchitecture: pipelined tiles, containing PEs (not pipelined) for dot product and accumulation. This enables both systolic spatial array (TPU) and parallel vector engines (NVDLA).</li>
+  <li>Connects to RocketCore/BOOM via RoCC; by default maps to L2 shared cache.</li>
+  <li>Main memory connects host to Gemmini’s Scratchpad (SRAM) and Accumulator. DMA access keeps latency low.</li>
+  <li>Scratchpad stores the inputs, and accumulator stores partial sums and final results.</li>
+  <li>Computation happens in weight stationary or output stationary dataflow, which is configurable at run-time/hardened in silicon.</li>
+</ul>
+
+<p>![img]</p>
+<ul>
+  <li>optionally peripheral circuitry for activation functions ReLU/ReLU6, result precision scaling by powers-of-2 for quantization, and pre-processing e.g. transpose matrix circuit before directing to the systolic array.</li>
+  <li>ONNX/C for programming.</li>
+  <li>Heuristic algorithms are used for data staging and mapping.</li>
+</ul>
+
+<p>Systolic Array configs:</p>
+
+<ul>
+  <li>Systolic array dimensions (tileRows, tileColumns, meshRows, meshColumns)</li>
+  <li>Input Stationary/Weight Stationary (dataflow)</li>
+  <li>Scratchpad/Accumulator capacity (in Kib) (sp_banks, sp_capacity, acc_capacity)</li>
+  <li>Datatypes for I/O and partial accumulations (inputType, outputType, accType)</li>
+  <li>Access-execute decoupling queue parameters (ld ,st, ex, rob)</li>
+  <li>DMA parameters and scaling factor (optional).</li>
+  <li>Custom RISC-V ISA extension support.</li>
+</ul>
+
+<p>![img3]
+Or, can be achieved via GEMM.
+Image processing data → im2col → Matrix Multiplication
+(Needs convolution)  (preprocessing) (Nested for loops)</p>
+
+<p>Performance:
+![img4]</p>
+
+<p>Memory partitioning strategy, tiling and scheduling can greatly impact performance of workload.
+Profiling access patterns in workloads can give better ideas in dataflow optimization.
+Spatial and Temporal data-reuse can further impact performance.
+Maximum area (67.1%) is still captured by SRAM on chip, followed by the rocket core and then the accelerator.</p>
+
+<p>In conclusion, what makes Gemmini unique from other implementations is the manufacturability as a full SoC, Linux OS support and Virtual address translation support (along with shared memory access). Dataflow, Bitwidth, Input Dimensions, Bus Size, HOST CPU,Pipelines, Memory and memory banks all affect the performance. Gemmini enables exploration of a vast design space, profile system-level performance using Chipyard + FireMarshal infrastructure and uncover reliability issues that can occur across the stack.</p>
+
+<h4 id="3-agile-hardware-aha-of-amber-soc-using-cgra">3. Agile Hardware (AHA) of Amber SoC using CGRA</h4>
+
+<p>A Coarse Grain Reconfigurable Architecture (CGRA) is a reconfigurable architecture that operates on coarser granularity than traditional reconfigurable architectures such as FPGA (fine-grained). CGRA consists of an array of Processing Elements (PE) and memory (MEM) tiles connected via reconfigurable interconnect that are capable of executing word-level operations and can be reconfigured to minimise idling time through online partial reconfiguration (necessary of edge devices and servers running parallel applications within the fabric).</p>
+
+<p>![img]</p>
+
+<p>Each hardware block has its own DSL for PE (PEak), MEM (Lake) and Interconnect (Canal). This is compiled to generate the final RTL and routed to the VLSI flow to generate GDSII. The compilers map applications written in Halide to a CGRA bitstream. It receives updated specifications (rewrite rules, routing graph) from the DSL-based hardware generators, allowing it to compile to evolving CGRA hardware with no manual updates. The coupled accelerator compiler takes the rewrite rules generated by each DSL compiler to map applications to the hardware. Halide (DSL in C/C++) specified applications are mapped to CGRA (Figure 5).</p>
+
+<p>Amber SoC is a 367 GOPS, 538 GOPS/W 16nm SoC designed with the AHA co-design approach for dense linear algebra applications (Figure 4).</p>
+<ul>
+  <li>Amber demonstrates 2x speed up compared to baseline FPGA by reduction in idle time through fast (3.5us) dynamic partial reconfiguration (DPR).</li>
+</ul>
+
+<p>[img]</p>
+
+<ul>
+  <li>It intelligently handles data access to streaming memory without DMA access (to reduce power consumption) by leveraging the affine data access patterns (e.g. nested for loop) in dense linear algebra applications. This is done using Iteration Domain (range of memory identification), Address Generator (address calculation) and Schedule generator (read/write signals). No manual intervention is necessary as the application compiler handles this task.</li>
+  <li>Wide fetch SRAM in streaming memory to reduce energy consumption (48%), and Resource sharing of ID/AD/SG to reduce area (50%).</li>
+  <li>It chains together PEs to perform less frequent but necessary algebraic operations (FPdiv, log, sin etc) with very small area overhead (0.2%) and saves 37.8% area compared to on ship complex op circuitry.</li>
+</ul>
+
+<h4 id="4-conclusions">4. Conclusions</h4>
+
+<ul>
+  <li>The cost of verification and software maintainability (of both, existing and new codebase) would be the key to determine the way forwards in computing.
+[img]</li>
+  <li>Both face a similar challenge in developing efficient algorithms for mapping data/software programs onto the systolic arrays/CGRA. This can be difficult, especially for large and complex applications. In contrast to systolic arrays, CGRAs are flexible enough to adapt to different applications.</li>
+  <li>Both, Systolic Arrays and CGRAs may not perform as well as specialised hardware for certain types of tasks. For example, a general-purpose processor may be faster for tasks that require a high level of sequential processing. In this sense, both are domain-specific architectures.</li>
+  <li>In either case, a rigorous approach to system-level verification and validation is a challenge; for which formal methods, DSE tools and profiling tools would be necessary. Further, Physical design needs manual interventions, which can drastically impact performance. This can be mitigated by automated tests for DFM (Design for Manufacturability/Sign-Off).</li>
+</ul>
+
+<p>To conclude, the fragmented landscape of ASICs for computing are causing a barrier to new innovations from the software frontend. Standardising the practices for developing new ASICs or CGRAs is a direction in the right step. What can be improved here is to allow for more comfortable entry points to SOC practitioners to allow configuration and testing of these devices through a cloud based infrastructure to iteratively evolve and make the portability of the existing software to the hardware feasible.</p>
+
+<p>Lastly, on a personal observation, the codebase of both needs a lot more comments. It’s a mess.</p>
+
+
+<span style="font-size:10pt;">[ Posted by <span style="color:#179CDC;">Amitabh Yadav ]</span>
+  <br> <div class="no-print">
+  <hr style="text-align=left; background-color:red;">
+<div id="share-bar">
+	<span>Share this to: </span>
+	<span class="share-buttons">
+		<a href='https://twitter.com/intent/tweet?text=An outlook on Agile Hardware Development Methodology for accelerating full-stack development of Deep Learning SoCs&url=https://blog.amitabhyadav.com/posts/2023/agile-hardware-and-software-for-soc/' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">Twitter</a>
+		<a href='https://www.linkedin.com/shareArticle?mini=true&url=https://blog.amitabhyadav.com/posts/2023/agile-hardware-and-software-for-soc/&title=An outlook on Agile Hardware Development Methodology for accelerating full-stack development of Deep Learning SoCs&summary=&source=blog.amitabhyadav.com' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">LinkedIn</a>
+		<a href='https://www.facebook.com/sharer.php?t=An outlook on Agile Hardware Development Methodology for accelerating full-stack development of Deep Learning SoCs&u=https://blog.amitabhyadav.com/posts/2023/agile-hardware-and-software-for-soc/' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">Facebook</a>
+	</span>
+<br>
+  
+	<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    	this.page.url = "http://localhost:4000/posts/2023/agile-hardware-and-software-for-soc/";  // Replace PAGE_URL with your page's canonical URL variable
+    	this.page.identifier = "http://localhost:4000/posts/2023/agile-hardware-and-software-for-soc/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://amitabhydv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a></noscript>
+
+  
+  </div>
+  
+  <div style="font-family: monospace; color: grey;">[This page is optimized for printing. Please consider saving paper by refraining from printing unless absolutely necessary.]</div>
+</div>
+</article>
+
+<!--  -->
+<span></span>
+<!--  -->
+	<div style="position: fixed; top: -0.6pt; right:1em; background: white; border: solid black 0.5pt; color: black;" class="no-print">&nbsp; <a href="/" style="color: inherit;">blog <span style="font-weight: 1000; font-size: 15px; color: red;">| </span>amitabh yadav</a> &nbsp; </div>
+
+<!-- dark/light button -->
+  <div class="theme-switch-wrapper no-print">
+   <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <label class="theme-switch" for="checkbox">
+    <input type="checkbox" id="checkbox" onchange="toggleDarkMode()"/>
+    <div class="slider round"></div>
+  </label>
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+  </div>
+
+<!-- dark/light button -->
+  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">&nbsp;Top&nbsp;</button>
+
+<footer style="font-family:monospace;" class="no-print"> <!-- <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> -->
+  <nav><a href="/" >[ all posts ]</a><a href="/categories/" >[ categories ]</a><a href="/about" >[ about ]</a></nav>
+ <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><span><a href="/NaN/" class="an0ny"><img id="an0n" style="filter:invert(95%);" src='/images/m.png' alt="an0nym0u5_c0113ctiv3" width="20pt" height=auto;></span> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  
+</footer>
+
+
+<!-- Go to Top Scripts -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<!-- Collapsible Scripts-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleactive");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("pageurllink");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+}
+</script>
+
+<script>
+const btn = document.getElementById('cpyurlbtn');
+if (btn) {
+btn.addEventListener('click', function handleClick() {
+  btn.textContent = 'copied';
+});
+}
+</script>
+
+<script>
+window.onload = function () {setColorScheme()};
+
+function setColorScheme() {
+	let colorScheme = localStorage.getItem("perplextiesBG");
+	if (colorScheme === "dark") {
+		document.getElementById("checkbox").checked = false;
+		document.body.style.background = "#212228";	//dark background
+		document.body.style.color = "#ffffff";
+	} else if (colorScheme === "light") {
+		document.getElementById("checkbox").checked = true;
+		document.body.style.background = "#E8F2FC"; 	// light background
+		document.body.style.color = "#212228";
+	} else {}
+}
+</script>
+
+<script>
+function toggleDarkMode() {
+	const toggleSwitch = document.getElementById("checkbox").checked;
+	var element = document.body;
+	if (toggleSwitch === false){				// dark
+		element.style.color = "#ffffff";
+		element.style.background = "#212228";
+		document.getElementById("an0n").style.filter = "invert(95%)";
+		localStorage.setItem("perplextiesBG", "dark");
+	} else if (toggleSwitch === true) {			// light
+		element.style.color = "#000000";
+		element.style.background = "#F5F5F5";
+		document.getElementById("an0n").style.filter = "invert(10%)";
+		localStorage.setItem("perplextiesBG", "light");
+	}
+}
+</script>
+
+</html>

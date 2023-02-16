@@ -141,7 +141,7 @@
 <article>
 <br><br>
   <header>
-  <strong><span class="cursor-thick">|</span> <a href="/posts/2023/agile-hardware-and-software-for-soc/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">An outlook on Agile Hardware Development Methodology for accelerating full-stack development of Deep Learning SoCs</a></strong></br><span><time datetime="2023-02-03T00:00:00+01:00" style="font-family: monospace;">February 03, 2023</time> &emsp;
+  <strong><!--<span class="cursor-thick">|</span> --><a href="/posts/2023/agile-hardware-and-software-for-soc/" style="text-decoration: none; font-size: 18pt; border-bottom: none;">An outlook on Agile Hardware Development Methodology for accelerating full-stack development of Deep Learning SoCs</a></strong></br><span><time datetime="2023-02-03T00:00:00+01:00" style="font-family: monospace;">February 03, 2023</time> &emsp;
 
 <input type="text" style="display:none;" id="pageurllink" value="https://blog.amitabhyadav.com/posts/2023/agile-hardware-and-software-for-soc/">
 <button onclick="myFunction()" id="cpyurlbtn" class="no-print" style="font-size: inherit -4px; border: solid black 0.5pt;outline: none; color:black; background-color: rgba(186, 186, 186, 0.25);cursor: pointer; padding: 4px; position:relative; bottom:2px; border-radius: 2px;">copy url</button>
@@ -165,19 +165,17 @@ Figure 1: Peak performance vs peak power of publically announced accelerators in
 
 <p>Chipyard + Gemmini are one of the more mature open-source frameworks for custom SoC-accelerator generators (aside from industry, e.g. ASIP designer) that adopts an agile approach. Chipyard is a complete suite for physically realisable SoC design, simulation, validation and full-stack integration to RISC-V and BOOM cores via RoCC port of TileLink to enable configurable generator-based accelerators (such as Gemmini) IP blocks that support rich parameterization and RISC-V ISA extensions. The number of tools are extensive and it would be unjust to briefly summarise. Figure below shows Chipyard workflow and Gemmini integration and attempts to share a glimpse.</p>
 
-<p>![img2]
-Gemmini is a matrix multiplication accelerator containing:</p>
+<p><img src="/assets/images/chipyard.png" alt="chipyard" /></p>
+
+<p>Gemmini is a matrix multiplication accelerator containing:</p>
 
 <ul>
   <li>2-tier organised Systolic array for flexible microarchitecture: pipelined tiles, containing PEs (not pipelined) for dot product and accumulation. This enables both systolic spatial array (TPU) and parallel vector engines (NVDLA).</li>
   <li>Connects to RocketCore/BOOM via RoCC; by default maps to L2 shared cache.</li>
   <li>Main memory connects host to Gemmini’s Scratchpad (SRAM) and Accumulator. DMA access keeps latency low.</li>
   <li>Scratchpad stores the inputs, and accumulator stores partial sums and final results.</li>
-  <li>Computation happens in weight stationary or output stationary dataflow, which is configurable at run-time/hardened in silicon.</li>
-</ul>
-
-<p>![img]</p>
-<ul>
+  <li>Computation happens in weight stationary or output stationary dataflow, which is configurable at run-time/hardened in silicon.
+<img src="/assets/images/ow-stationary.png" alt="ow-stationary" /></li>
   <li>optionally peripheral circuitry for activation functions ReLU/ReLU6, result precision scaling by powers-of-2 for quantization, and pre-processing e.g. transpose matrix circuit before directing to the systolic array.</li>
   <li>ONNX/C for programming.</li>
   <li>Heuristic algorithms are used for data staging and mapping.</li>
@@ -195,13 +193,16 @@ Gemmini is a matrix multiplication accelerator containing:</p>
   <li>Custom RISC-V ISA extension support.</li>
 </ul>
 
-<p>![img3]
-Or, can be achieved via GEMM.
-Image processing data → im2col → Matrix Multiplication
-(Needs convolution)  (preprocessing) (Nested for loops)</p>
+<p><img src="/assets/images/cnnhw.png" alt="cnn-hardware-impl" />
+Or, can be achieved via GEMM.</p>
 
-<p>Performance:
-![img4]</p>
+<p>Image processing data –&gt; im2col –&gt; Matrix Multiplication</p>
+
+<p>(Needs convolution)    (preprocessing)   (Nested for loops)</p>
+
+<p>Performance:</p>
+
+<p><img src="/assets/images/nn-gemmini-perf.png" alt="performance-gemmini" /></p>
 
 <p>Memory partitioning strategy, tiling and scheduling can greatly impact performance of workload.
 Profiling access patterns in workloads can give better ideas in dataflow optimization.
@@ -214,18 +215,14 @@ Maximum area (67.1%) is still captured by SRAM on chip, followed by the rocket c
 
 <p>A Coarse Grain Reconfigurable Architecture (CGRA) is a reconfigurable architecture that operates on coarser granularity than traditional reconfigurable architectures such as FPGA (fine-grained). CGRA consists of an array of Processing Elements (PE) and memory (MEM) tiles connected via reconfigurable interconnect that are capable of executing word-level operations and can be reconfigured to minimise idling time through online partial reconfiguration (necessary of edge devices and servers running parallel applications within the fabric).</p>
 
-<p>![img]</p>
+<p><img src="/assets/images/aha-stanford.png" alt="aha-cgra" /></p>
 
 <p>Each hardware block has its own DSL for PE (PEak), MEM (Lake) and Interconnect (Canal). This is compiled to generate the final RTL and routed to the VLSI flow to generate GDSII. The compilers map applications written in Halide to a CGRA bitstream. It receives updated specifications (rewrite rules, routing graph) from the DSL-based hardware generators, allowing it to compile to evolving CGRA hardware with no manual updates. The coupled accelerator compiler takes the rewrite rules generated by each DSL compiler to map applications to the hardware. Halide (DSL in C/C++) specified applications are mapped to CGRA (Figure 5).</p>
 
 <p>Amber SoC is a 367 GOPS, 538 GOPS/W 16nm SoC designed with the AHA co-design approach for dense linear algebra applications (Figure 4).</p>
 <ul>
-  <li>Amber demonstrates 2x speed up compared to baseline FPGA by reduction in idle time through fast (3.5us) dynamic partial reconfiguration (DPR).</li>
-</ul>
-
-<p>[img]</p>
-
-<ul>
+  <li>Amber demonstrates 2x speed up compared to baseline FPGA by reduction in idle time through fast (3.5us) dynamic partial reconfiguration (DPR).
+<img src="/assets/images/aha-perf.png" alt="aha-perf" /></li>
   <li>It intelligently handles data access to streaming memory without DMA access (to reduce power consumption) by leveraging the affine data access patterns (e.g. nested for loop) in dense linear algebra applications. This is done using Iteration Domain (range of memory identification), Address Generator (address calculation) and Schedule generator (read/write signals). No manual intervention is necessary as the application compiler handles this task.</li>
   <li>Wide fetch SRAM in streaming memory to reduce energy consumption (48%), and Resource sharing of ID/AD/SG to reduce area (50%).</li>
   <li>It chains together PEs to perform less frequent but necessary algebraic operations (FPdiv, log, sin etc) with very small area overhead (0.2%) and saves 37.8% area compared to on ship complex op circuitry.</li>
@@ -235,7 +232,7 @@ Maximum area (67.1%) is still captured by SRAM on chip, followed by the rocket c
 
 <ul>
   <li>The cost of verification and software maintainability (of both, existing and new codebase) would be the key to determine the way forwards in computing.
-[img]</li>
+<img src="/assets/images/chip-design-cost.png" alt="chip-design-cost-breakdown" /></li>
   <li>Both face a similar challenge in developing efficient algorithms for mapping data/software programs onto the systolic arrays/CGRA. This can be difficult, especially for large and complex applications. In contrast to systolic arrays, CGRAs are flexible enough to adapt to different applications.</li>
   <li>Both, Systolic Arrays and CGRAs may not perform as well as specialised hardware for certain types of tasks. For example, a general-purpose processor may be faster for tasks that require a high level of sequential processing. In this sense, both are domain-specific architectures.</li>
   <li>In either case, a rigorous approach to system-level verification and validation is a challenge; for which formal methods, DSE tools and profiling tools would be necessary. Further, Physical design needs manual interventions, which can drastically impact performance. This can be mitigated by automated tests for DFM (Design for Manufacturability/Sign-Off).</li>
@@ -387,10 +384,12 @@ function setColorScheme() {
 		document.getElementById("checkbox").checked = false;
 		document.body.style.background = "#212228";	//dark background
 		document.body.style.color = "#ffffff";
+		document.getElementById("an0n").style.filter = "invert(95%)";
 	} else if (colorScheme === "light") {
 		document.getElementById("checkbox").checked = true;
-		document.body.style.background = "#E8F2FC"; 	// light background
-		document.body.style.color = "#212228";
+		document.body.style.background = "#F5F5F5"; 	// light background
+		document.body.style.color = "#000000";
+		document.getElementById("an0n").style.filter = "invert(10%)";
 	} else {}
 }
 </script>

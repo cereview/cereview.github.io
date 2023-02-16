@@ -141,7 +141,7 @@
 <article>
 <br><br>
   <header>
-  <strong><span class="cursor-thick">|</span> <a href="/posts/2017/the-sounding-rocket/" style="text-decoration: none; font-size: 20pt; border-bottom: none;">On the Electronics Systems of Experimental Sounding Rockets</a></strong></br><span><time datetime="2017-10-17T00:00:00+02:00" style="font-family: monospace;">October 17, 2017</time> &emsp;
+  <strong><!--<span class="cursor-thick">|</span> --><a href="/posts/2017/the-sounding-rocket/" style="text-decoration: none; font-size: 18pt; border-bottom: none;">On the Electronics Systems of Experimental Sounding Rockets</a></strong></br><span><time datetime="2017-10-17T00:00:00+02:00" style="font-family: monospace;">October 17, 2017</time> &emsp;
 
 <input type="text" style="display:none;" id="pageurllink" value="https://blog.amitabhyadav.com/posts/2017/the-sounding-rocket/">
 <button onclick="myFunction()" id="cpyurlbtn" class="no-print" style="font-size: inherit -4px; border: solid black 0.5pt;outline: none; color:black; background-color: rgba(186, 186, 186, 0.25);cursor: pointer; padding: 4px; position:relative; bottom:2px; border-radius: 2px;">copy url</button>
@@ -354,10 +354,12 @@ function setColorScheme() {
 		document.getElementById("checkbox").checked = false;
 		document.body.style.background = "#212228";	//dark background
 		document.body.style.color = "#ffffff";
+		document.getElementById("an0n").style.filter = "invert(95%)";
 	} else if (colorScheme === "light") {
 		document.getElementById("checkbox").checked = true;
-		document.body.style.background = "#E8F2FC"; 	// light background
-		document.body.style.color = "#212228";
+		document.body.style.background = "#F5F5F5"; 	// light background
+		document.body.style.color = "#000000";
+		document.getElementById("an0n").style.filter = "invert(10%)";
 	} else {}
 }
 </script>

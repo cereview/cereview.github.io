@@ -285,10 +285,12 @@ function setColorScheme() {
 		document.getElementById("checkbox").checked = false;
 		document.body.style.background = "#212228";	//dark background
 		document.body.style.color = "#ffffff";
+		document.getElementById("an0n").style.filter = "invert(95%)";
 	} else if (colorScheme === "light") {
 		document.getElementById("checkbox").checked = true;
-		document.body.style.background = "#E8F2FC"; 	// light background
-		document.body.style.color = "#212228";
+		document.body.style.background = "#F5F5F5"; 	// light background
+		document.body.style.color = "#000000";
+		document.getElementById("an0n").style.filter = "invert(10%)";
 	} else {}
 }
 </script>

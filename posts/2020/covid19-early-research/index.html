@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>COVID-19 Virus and early remedial research | amitabh yadav</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Amitabh Yadav">
+<link rel="canonical" href="http://localhost:4000/posts/2020/covid19-early-research/">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<style> 
+	#topbtn {
+	  display: none;
+	  position: fixed;
+	  bottom: 125px;
+	  right: 0.5em;
+	  z-index: 99;
+	  font-size: 18px;
+	  border: solid black 0.5pt;
+	  outline: none;
+	  background-color: rgba(186, 186, 186, 0.25);
+	  color: black;
+	  cursor: pointer;
+	  padding: 6px;
+	  border-radius: 6px;
+	}
+
+	// collapsible scripts 
+	.collapsible {
+
+	}
+
+	.collapsible::before {
+	  content: "▸ " ;//"&#x25BA; ";
+	}
+
+	.collapsibleactive, .collapsible:hover {
+	  //background-color: #555;
+	  border-bottom: dotted 0.5pt red; 
+	}
+
+	.collapsibleactive::before {
+	  content: "▾ ";//"&#x25BC; ";
+	}
+
+	.collapsiblecontent {
+	  line-height: 1.35;
+	  margin: 0;
+	  padding: 0 5px;
+	  display: none;
+	  overflow: hidden;
+	  background-color: transparent;
+	}
+
+	#share-bar {
+		font-weight: normal;
+		margin: 10px 0px;
+	}
+	/* All buttons */
+	.share-buttons {
+	}
+	 
+	/* Each button */
+	.share-button {
+	border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
+	}
+
+	/*slider switch css */
+	.theme-switch-wrapper {
+	  display: flex;
+	  align-items: center;
+	  position: fixed;
+	  top: 7pt; 
+	  left:1em;
+	}
+	.theme-switch {
+	  display: inline-block;
+	  height: 22px;
+	  position: relative;
+	  width: 48px;
+	}
+
+	.theme-switch input {
+	  display:none;
+	}
+
+	.slider {
+	  background-color: #0AB9A1;
+	  bottom: 0;
+	  cursor: pointer;
+	  left: 0;
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	  transition: .4s;
+	}
+
+	.slider:before {
+	  background-color: #fff;
+	  bottom: 2px;
+	  content: "";
+	  height: 18px;
+	  left: 28px;
+	  position: absolute;
+	  transition: .4s;
+	  width: 18px;
+	}
+
+	input:checked + .slider {
+	  background-color: lightgray; //#66bb6a;
+	}
+
+	input:checked + .slider:before {
+	  transform: translateX(-26px);
+	}
+
+	.slider.round {
+	  border-radius: 34px;
+	}
+
+	.slider.round:before {
+	  border-radius: 50%;
+	}
+
+</style>
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="amitabh yadav">
+
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+
+<script src="//amitabhydv.disqus.com/embed.js" async></script>
+
+
+
+
+
+
+
+
+<article>
+<br><br>
+  <header>
+  <strong><!--<span class="cursor-thick">|</span> --><a href="/posts/2020/covid19-early-research/" style="text-decoration: none; font-size: 18pt; border-bottom: none;">COVID-19 Virus and early remedial research</a></strong><br><span><time datetime="2020-03-13T00:00:00+01:00" style="font-family: monospace; font-size:12px;">March 13, 2020</time> &emsp;
+
+<input type="text" style="display:none;" id="pageurllink" value="https://blog.amitabhyadav.com/posts/2020/covid19-early-research/">
+<button onclick="myFunction()" id="cpyurlbtn" class="no-print" style="float:right; font-size: inherit -8px; border: solid black 0.5pt;outline: none; color:#9e9e9e; background-color: rgba(186, 186, 186, 0.25);cursor: pointer; padding: 3px; position:relative; bottom:1px; border-radius: 2px;">copy url</button>
+
+<!-- <span style="float:right; font-family: monospace; background-color: transparent; color: #0AB9A1" class="no-print">[ <a href="/">see all posts</a> ]</span> --></span>
+</header>
+
+
+  <p>The news of corona virus spreading in the bay area is very unsettling. The threat seems more real than ever, specially when my supervisor offered to terminate my contract to allow me to go home, in case I’m afraid of the collateral consequences such as, travel ban or quarantine (given the travel from Europe was banned yesterday by the US Government). I’m scheduled to travel back to India in May, and a travel ban order can seriously affect everything, since I won’t have a valid VISA to stay here. Even after arrival in New Delhi, the situation is bad. I had plans to continue my research in Netherlands after this, but with the growing number of cases in Europe as a whole, it’s not the idea anymore that I’d want to pursue. CERN is closing down access to the site due to the increasing risk. Friends there inform me, they’d be working from home, starting next week. Both Stanford and Berkeley have transitioned their classes online.</p>
+
+<p><img src="/assets/images/cell-covid.jpg" alt="Covid Cell" /></p>
+
+<p>An image of COVID-19 Virus taken with an electron microscope. Credit: U.S. National Institute of Health.</p>
+
+<p>Luckily at the lab, there are no registered cases of COVID-19. Our lab director, <a href="https://en.wikipedia.org/wiki/Michael_Stewart_Witherell">Mike Witherell</a>, has been keeping us all updated with the status of the spread in the Bay area, and specially the Berkeley region, since it’s first identified case of the virus. The APS March Meeting in Denver was cancelled earlier this month, followed by news of cancellation of the ACS meeting, which was scheduled two weeks from now in Philadelphia. Until further notice, the lab has suspended all international travel and, allowed only mission critical domestic travel in the US. Now, all the gatherings and meeting are either getting cancelled or being held online. It’s a clear hint (at least for me) that, it is a time to seriously isolate yourself.</p>
+
+<p><img src="/assets/images/igi-covid.jpg" alt="International Arrivals" /></p>
+
+<p>International Arrivals at IGI Airport, New Delhi (March 12th, 2020)</p>
+
+<blockquote>
+  <p>Pandemic is not a word to use lightly or carelessly. It is a word that, if misused, can cause unreasonable fear, or unjustified acceptance that the fight is over, leading to unnecessary suffering and death.</p>
+</blockquote>
+
+<p><a href="http://www.needsbrave.com/about-alanna/">Alanna Shaikh</a>, an expert in Global health and Education highlights some information on the origins of the virus, in her <a href="https://www.youtube.com/watch?v=Fqw-9yMV0sI">TEDx talk</a>. The COVID-19 is the 7th and the newly identified type of corona virus that “goes for your lungs”. Yes, it’s the best time to quit smoking, if you do. A good news is that, Children have it easy with COVID-19. The best hope we have is to stay hygienic, clean hands as often as possible and avoid touching your face. For a nail-biter like me, it’s quite a challenge (maybe an opportunity, to finally put a stop to this bad habit). The climate change critics might disagree, but Climate Change and human intrusion into Natural habitats is the main reason for this <a href="https://www.who.int/director-general/speeches/detail/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020">pandemic</a>. One of the main things Alanna stresses upon is, that this is not the first epi/pandemic and it is not going to be the last. There will be more such instances in the future, and readiness and timely communication is the only way to approach this problem. China’s miscommunication to it’s people and to the world about the virus’ spread is not an example for the future generations.</p>
+
+<p>The WHO reported yesterday’s tally of 118,000 cases of infections across 114 countries, and 4,291 cases of associated demise. Lack of capacity, lack of resources and lack of resolve in countries is what is inhibiting the control of the spread of this virus. Lock-down, Quarantine, or Travel ban is not the solution to this modern day crisis. If countries detect, test, treat, isolate, trace, and mobilize their people in the response, those with a handful of cases can prevent those cases becoming clusters, and those clusters becoming community transmission.</p>
+
+<h3 id="covid-19-initial-analysis-of-the-infection-and-research-for-its-cure">COVID-19: Initial Analysis of the infection and Research for it’s Cure</h3>
+
+<p>Initial hypothesis based on genetic and structural analysis of the virus identifies a protein as the main reason for the spread of this virus. It’s has been identified to be 10 times more infectious than severe acute respiratory syndrome, SARS (also a type of corona virus).  Genomic analyses of COVID-19 shows that the spike protein differs from other corona. A site on the protein gets activated by a host-cell enzyme called furin, which is found in many human tissues - the lungs, liver and small intestines. This means, multiple organs are at threat from this virus. Compared to COVID-19, SARS and other corona do not have site activation due to furin. Li Hua, a structural biologist at Huazhong University of Science and Technology is working on developing molecules that could block furin. It is worth mentioning that, Li now the only member of his team allowed to access his team’s laboratory.</p>
+
+<p>Another team lead by Jason McLellan, a structural biologist at the University of Texas at Austin believes the activation site theory may be over emphasized and suggests another reason. That, the spike protein binds to a receptor on human cells - known as angiotensin-converting enzyme 2 (ACE2). This it does at least ten times more tightly than does the spike protein in the SARS virus. This theory was also supported by David Veesler, a structural virologist at the University of Washington in Seattle and they are working on a method or a drug that could block the receptor, and might make it harder for corona virus to the enter cells.</p>
+
+<h3 id="covid-19-is-it-an-exponential-surge">COVID-19: Is it an Exponential Surge?</h3>
+
+<p>It’s not clear how the spread of the virus would be in the coming days, but we can model it’s spread mathematically. Grant Sanderson beautifully does that, here - <a href="https://www.youtube.com/watch?v=Kas0tIxDvrg">Exponential Growth and Epidemics</a> (A recommended watch). An epidemic surge does not mean it will grow exponentially. True exponential don’t actually exist in the read world. What appears to be an exponential surge, after an inflection point (where your growth rate becomes 1.00), the curve starts to flatten out and starts to appear what it is, a logistic function. The COVID-19’s growth rate has been in between 1.15 - 1.37 (i.e. 15 - 37%) in the first week of March, 2020 - the greater the growth rate from 1.00, the spread exhibits an exponential behavior, which is certainly bad. By the simple act of washing hands and avoiding unnecessary exposure to infection inflicting possibilities, the growth rate can be decreased significantly. Among all this, there is also a good news, the exponential function is very sensitive to the growth rate factor, a minor decrease in the growth factor would also result in an exponential drop in the number of growing infection cases. (Watch the video, it’s really informative.)</p>
+
+<p><img src="/assets/images/exp-covid.png" alt="Modeling the growth of COVID-19" /></p>
+
+<p>Modeling the growth of COVID-19. Credit: 3blue1brown by Grant Sanderson</p>
+
+<p>References:</p>
+<ol>
+  <li><a href="https://www.cdc.gov/coronavirus/2019-ncov/index.html">U.S. Center for Disease Control</a></li>
+  <li><a href="https://www.nature.com/articles/d41586-020-00660-x?utm_source=facebook&amp;utm_medium=social&amp;utm_content=organic&amp;utm_campaign=NGMT_USG_JC01_GL_Nature&amp;fbclid=IwAR3zpU5BBecaz3J9pUg7la0nqlxbxnjYzxykLbCSDAUcRHrVidZmb5noaVk#ref-CR1">Nature: Why does Corona Virus spread so easily among people?</a></li>
+  <li><a href="https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw">3Blue1Brown</a></li>
+</ol>
+
+
+<span style="font-size:10pt;">[ Posted by <span style="color:#179CDC;">Amitabh Yadav</span> ]
+  <br> <div class="no-print">
+  <hr style="text-align=left; background-color:red;">
+<div id="share-bar">
+	<span>Share this to: </span>
+	<span class="share-buttons">
+		<a href='https://twitter.com/intent/tweet?text=COVID-19 Virus and early remedial research&url=https://blog.amitabhyadav.com/posts/2020/covid19-early-research/' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">Twitter</a>
+		<a href='https://www.linkedin.com/shareArticle?mini=true&url=https://blog.amitabhyadav.com/posts/2020/covid19-early-research/&title=COVID-19 Virus and early remedial research&summary=&source=blog.amitabhyadav.com' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">LinkedIn</a>
+		<a href='https://www.facebook.com/sharer.php?t=COVID-19 Virus and early remedial research&u=https://blog.amitabhyadav.com/posts/2020/covid19-early-research/' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" style="font-size: inherit -4px;color:inherit;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;">Facebook</a>
+	</span>
+<br>
+  
+	<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    	this.page.url = "http://localhost:4000/posts/2020/covid19-early-research/";  // Replace PAGE_URL with your page's canonical URL variable
+    	this.page.identifier = "http://localhost:4000/posts/2020/covid19-early-research/"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://amitabhydv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a></noscript>
+
+  
+  </div>
+  
+  <div style="font-family: monospace; color: grey;">[This page is optimized for printing. Please consider saving paper by refraining from printing unless absolutely necessary.]</div>
+</div>
+</article>
+
+<!--  -->
+<span></span>
+<!--  -->
+	<div style="position: fixed; top: -0.6pt; right:1em; background: white; border: solid black 0.5pt; color: black;" class="no-print">&nbsp; <a href="/" style="color: inherit;">blog <span style="font-weight: 1000; font-size: 15px; color: red;">| </span>amitabh yadav</a> &nbsp; </div>
+
+<!-- dark/light button -->
+  <div class="theme-switch-wrapper no-print">
+   <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <label class="theme-switch" for="checkbox">
+    <input type="checkbox" id="checkbox" onchange="toggleDarkMode()"/>
+    <div class="slider round"></div>
+  </label>
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+  </div>
+
+<!-- dark/light button -->
+  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">&nbsp;Top&nbsp;</button>
+
+<footer style="font-family:monospace;" class="no-print"> <!-- <div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div> -->
+  <nav><a href="/" >[all posts]</a><a href="/categories/" >[categories]</a><a href="/about" >[about]</a></nav>
+ <a href="https://twitter.com/amitabhydv?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @amitabhydv</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script><span><a href="/NaN/" class="an0ny"><img id="an0n" style="filter:invert(95%);" src='/images/m.png' alt="an0nym0u5_c0113ctiv3" width="20pt" height=auto;></span> <!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  
+</footer>
+
+
+<!-- Go to Top Scripts -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<!-- Collapsible Scripts-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleactive");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("pageurllink");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+}
+</script>
+
+<script>
+const btn = document.getElementById('cpyurlbtn');
+if (btn) {
+btn.addEventListener('click', function handleClick() {
+  btn.textContent = 'copied';
+});
+}
+</script>
+
+<script>
+window.onload = function () {setColorScheme()};
+
+function setColorScheme() {
+	let colorScheme = localStorage.getItem("perplextiesBG");
+	if (colorScheme === "dark") {
+		document.getElementById("checkbox").checked = false;
+		document.body.style.background = "#212228";	//dark background
+		document.body.style.color = "#ffffff";
+		document.getElementById("an0n").style.filter = "invert(95%)";
+	} else if (colorScheme === "light") {
+		document.getElementById("checkbox").checked = true;
+		document.body.style.background = "#F5F5F5"; 	// light background
+		document.body.style.color = "#000000";
+		document.getElementById("an0n").style.filter = "invert(10%)";
+	} else {}
+}
+</script>
+
+<script>
+function toggleDarkMode() {
+	const toggleSwitch = document.getElementById("checkbox").checked;
+	var element = document.body;
+	if (toggleSwitch === false){				// dark
+		element.style.color = "#ffffff";
+		element.style.background = "#212228";
+		document.getElementById("an0n").style.filter = "invert(95%)";
+		localStorage.setItem("perplextiesBG", "dark");
+	} else if (toggleSwitch === true) {			// light
+		element.style.color = "#000000";
+		element.style.background = "#F5F5F5";
+		document.getElementById("an0n").style.filter = "invert(10%)";
+		localStorage.setItem("perplextiesBG", "light");
+	}
+}
+</script>
+
+</html>

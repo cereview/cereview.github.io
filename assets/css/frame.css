@@ -2,7 +2,7 @@
 
 @font-face { font-family: 'PT Sans'; src: local("PT Sans Bold"), local("PTSans-Bold"), url("../fonts/PTSans-Bold.woff") format("woff"); font-weight: bold; font-style: normal; }
 
-body { background: #212228; color: #F5F5F5; font-family: -apple-system, "Segoe UI", "PT Sans", sans-serif; font-weight: 420; font-size: calc(0.85rem + 0.2vw); line-height: 1.5; margin-left: 1em; min-height: 98vh; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body { background: #F5F5F5; color: #212228; font-family: -apple-system, "Segoe UI", "PT Sans", sans-serif; font-weight: 420; font-size: calc(0.85rem + 0.2vw); line-height: 1.5; margin-left: 1em; min-height: 98vh; -webkit-text-size-adjust: 100%; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 @media (prefers-color-scheme: light) { body { background: #F5F5F5; color: #212228; } }
 

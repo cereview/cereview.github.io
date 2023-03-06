@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.2.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" hreflang="en" /><updated>2023-03-06T02:32:16+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">resXiv</title><subtitle>It&apos;s not right but the thing is, it&apos;s not even wrong!</subtitle><author><name>Amitabh Yadav</name></author><entry><title type="html">NeuralTree: A 256-Channel 0.227-μJ/Class Versatile Neural Activity Classification and Closed-Loop Neuromodulation SoC</title><link href="http://localhost:4000/posts/2022/neural-tree-closedloop-soc-jssc" rel="alternate" type="text/html" title="NeuralTree: A 256-Channel 0.227-μJ/Class Versatile Neural Activity Classification and Closed-Loop Neuromodulation SoC" /><published>2023-03-06T00:00:00+01:00</published><updated>2023-03-06T00:00:00+01:00</updated><id>http://localhost:4000/posts/2022/neural-tree-closedloop-soc-jssc</id><content type="html" xml:base="http://localhost:4000/posts/2022/neural-tree-closedloop-soc-jssc"><![CDATA[<p>U. Shin et al., <a href="https://ieeexplore.ieee.org/document/9905664">“NeuralTree: A 256-Channel 0.227-μJ/Class Versatile Neural Activity Classification and Closed-Loop Neuromodulation SoC,”</a> in <em>IEEE Journal of Solid-State Circuits</em>, vol. 57, no. 11, pp. 3243-3257, Nov. 2022, doi: 10.1109/JSSC.2022.3204508.</p>
+
+<h4 id="synopsis">Synopsis</h4>
+
+<h4 id="strengths">Strengths</h4>
+
+<h4 id="weaknesses">Weaknesses</h4>
+
+<h4 id="thoughts">Thoughts</h4>
+
+<h4 id="takeaways">Takeaways</h4>
+
+<h4 id="favourite-bits">Favourite bits</h4>
+
+<h4 id="suggested-reading-optional">Suggested Reading (optional)</h4>
+
+<h4 id="case-study-optional">Case study (optional)</h4>
+
+<h4 id="references">References</h4>]]></content><author><name>Amitabh Yadav</name></author><category term="JSSC" /><summary type="html"><![CDATA[U. Shin et al., “NeuralTree: A 256-Channel 0.227-μJ/Class Versatile Neural Activity Classification and Closed-Loop Neuromodulation SoC,” in IEEE Journal of Solid-State Circuits, vol. 57, no. 11, pp. 3243-3257, Nov. 2022, doi: 10.1109/JSSC.2022.3204508.]]></summary></entry><entry><title type="html">The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation</title><link href="http://localhost:4000/posts/2022/the-art-of-scaling-isscc22" rel="alternate" type="text/html" title="The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation" /><published>2023-03-06T00:00:00+01:00</published><updated>2023-03-06T00:00:00+01:00</updated><id>http://localhost:4000/posts/2022/art-of-scaling-isscc22</id><content type="html" xml:base="http://localhost:4000/posts/2022/the-art-of-scaling-isscc22"><![CDATA[<p>I. Kang, <a href="https://ieeexplore.ieee.org/document/9731536">“The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation,”</a> <em>2022 IEEE International Solid- State Circuits Conference (ISSCC)</em>, San Francisco, CA, USA, 2022, pp. 25-31.</p>
+
+<h4 id="synopsis">Synopsis</h4>
+
+<h4 id="strengths">Strengths</h4>
+
+<h4 id="weaknesses">Weaknesses</h4>
+
+<h4 id="thoughts">Thoughts</h4>
+
+<h4 id="takeaways">Takeaways</h4>
+
+<h4 id="favourite-bits">Favourite bits</h4>
+
+<h4 id="suggested-reading-optional">Suggested Reading (optional)</h4>
+
+<h4 id="case-study-optional">Case study (optional)</h4>
+
+<h4 id="references">References</h4>]]></content><author><name>Amitabh Yadav</name></author><category term="ISSCC 2022" /><summary type="html"><![CDATA[I. Kang, “The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation,” 2022 IEEE International Solid- State Circuits Conference (ISSCC), San Francisco, CA, USA, 2022, pp. 25-31.]]></summary></entry><entry><title type="html">The Future of the High-Performance Semiconductor Industry and Design</title><link href="http://localhost:4000/posts/2022/future-of-hpc-semiconductors-isscc22" rel="alternate" type="text/html" title="The Future of the High-Performance Semiconductor Industry and Design" /><published>2023-03-06T00:00:00+01:00</published><updated>2023-03-06T00:00:00+01:00</updated><id>http://localhost:4000/posts/2022/furture-of-hpc-semiconductors-isscc22%20-%20Copy</id><content type="html" xml:base="http://localhost:4000/posts/2022/future-of-hpc-semiconductors-isscc22"><![CDATA[<p>R. James, <a href="https://ieeexplore.ieee.org/document/9731588">“The Future of the High-Performance Semiconductor Industry and Design,”</a> <em>2022 IEEE International Solid- State Circuits Conference (ISSCC)</em>, San Francisco, CA, USA, 2022, pp. 32-35, doi: 10.1109/ISSCC42614.2022.9731588.</p>
+
+<h4 id="synopsis">Synopsis</h4>
+
+<h4 id="strengths">Strengths</h4>
+
+<h4 id="weaknesses">Weaknesses</h4>
+
+<h4 id="thoughts">Thoughts</h4>
+
+<h4 id="takeaways">Takeaways</h4>
+
+<h4 id="favourite-bits">Favourite bits</h4>
+
+<h4 id="suggested-reading-optional">Suggested Reading (optional)</h4>
+
+<h4 id="case-study-optional">Case study (optional)</h4>
+
+<h4 id="references">References</h4>]]></content><author><name>Amitabh Yadav</name></author><category term="ISSCC 2022" /><summary type="html"><![CDATA[R. James, “The Future of the High-Performance Semiconductor Industry and Design,” 2022 IEEE International Solid- State Circuits Conference (ISSCC), San Francisco, CA, USA, 2022, pp. 32-35, doi: 10.1109/ISSCC42614.2022.9731588.]]></summary></entry></feed>

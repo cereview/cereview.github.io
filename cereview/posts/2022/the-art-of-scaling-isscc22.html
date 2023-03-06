@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation | resXiv</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Amitabh Yadav">
+<link rel="canonical" href="http://localhost:4000/posts/2022/the-art-of-scaling-isscc22">
+
+<link rel="stylesheet" href="/assets/css/index.css">
+
+<style> 
+	#topbtn {
+	  display: none;
+	  position: fixed;
+	  bottom: 125px;
+	  right: 0.5em;
+	  z-index: 99;
+	  font-size: 18px;
+	  border: solid black 0.5pt;
+	  outline: none;
+	  background-color: rgba(186, 186, 186, 0.25);
+	  color: #9e9e9e;
+	  cursor: pointer;
+	  padding: 6px;
+	  border-radius: 6px;
+	}
+
+	// collapsible scripts 
+	.collapsible {
+
+	}
+
+	.collapsible::before {
+	  content: "▸ " ;//"&#x25BA; ";
+	}
+
+	.collapsibleactive, .collapsible:hover {
+	  //background-color: #555;
+	  border-bottom: dotted 0.5pt red; 
+	}
+
+	.collapsibleactive::before {
+	  content: "▾ ";//"&#x25BC; ";
+	}
+
+	.collapsiblecontent {
+	  line-height: 1.35;
+	  margin: 0;
+	  padding: 0 5px;
+	  display: none;
+	  overflow: hidden;
+	  background-color: transparent;
+	}
+
+	#share-bar {
+		font-weight: normal;
+		margin: 10px 0px;
+	}
+	/* All buttons */
+	.share-buttons {
+	}
+	 
+	/* Each button */
+	.share-button {
+	border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: black;cursor: pointer; padding: 4px; border-radius: 6px;
+	}
+
+	/*slider switch css */
+	.theme-switch-wrapper {
+	  display: flex;
+	  align-items: center;
+	  position: fixed;
+	  top: 7pt; 
+	  left:1em;
+	}
+	.theme-switch {
+	  display: inline-block;
+	  height: 22px;
+	  position: relative;
+	  width: 48px;
+	}
+
+	.theme-switch input {
+	  display:none;
+	}
+
+	.slider {
+	  background-color: lightgrey;
+	  bottom: 0;
+	  cursor: pointer;
+	  left: 0;
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	  transition: .4s;
+	}
+
+	.slider:before {
+	  background-color: #fff;
+	  bottom: 2px;
+	  content: "";
+	  height: 18px;
+	  left: 2px;		/* this for default position of slider */
+	  position: absolute;
+	  transition: .4s;
+	  width: 18px;
+	}
+
+	input:checked + .slider {
+	  background-color: #0AB9A1; //#66bb6a;
+	}
+
+	input:checked + .slider:before {
+	  transform: translateX(26px);
+	}
+
+	.slider.round {
+	  border-radius: 34px;
+	}
+
+	.slider.round:before {
+	  border-radius: 50%;
+	}
+
+</style>
+<link rel="alternate" href="/feed.xml" type="application/atom+xml" title="resXiv">
+
+<link rel="stylesheet" href="/assets/katex/katex.min.css">
+<script defer src="/assets/katex/katex.min.js"></script>
+<script defer src="/assets/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body)"></script>
+
+<script src="//amitabhydv.disqus.com/embed.js" async></script>
+
+
+
+
+
+
+
+
+<article>
+<br><br>
+<!-- <span style="font-size:10pt;"><i>posted by</i> <span style="color:#179CDC;">Amitabh Yadav</span></span> -->
+  <header>
+  <strong><span class="cursor-thick">|</span> <a href="/posts/2022/the-art-of-scaling-isscc22" style="text-decoration: none; font-size: 20pt; border-bottom: none;">The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation</a></strong><br><span><time datetime="2023-03-06T00:00:00+01:00" style="font-size:14px;">March 06, 2023</time> &emsp;
+<button onclick="myFunction()" id="cpyurlbtn" class="no-print" style="float:right;font-size: inherit -8px; border: solid black 0.5pt;outline: none; color:#9e9e9e; background-color: rgba(186, 186, 186, 0.25);cursor: pointer; padding: 3px; position:relative; bottom:1px; border-radius: 2px;">copy url</button>
+<input type="text" style="display:none;" id="pageurllink" value="https://blog.amitabhyadav.com/cereview/posts/2022/the-art-of-scaling-isscc22">
+
+<!-- <span style="float:right; font-family: monospace; background-color: transparent; color: #0AB9A1" class="no-print">[ <a href="/">see all posts</a> ]</span> --></span>
+</header>
+
+  <p>I. Kang, <a href="https://ieeexplore.ieee.org/document/9731536">“The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation,”</a> <em>2022 IEEE International Solid- State Circuits Conference (ISSCC)</em>, San Francisco, CA, USA, 2022, pp. 25-31.</p>
+
+<h4 id="synopsis">Synopsis</h4>
+
+<h4 id="strengths">Strengths</h4>
+
+<h4 id="weaknesses">Weaknesses</h4>
+
+<h4 id="thoughts">Thoughts</h4>
+
+<h4 id="takeaways">Takeaways</h4>
+
+<h4 id="favourite-bits">Favourite bits</h4>
+
+<h4 id="suggested-reading-optional">Suggested Reading (optional)</h4>
+
+<h4 id="case-study-optional">Case study (optional)</h4>
+
+<h4 id="references">References</h4>
+
+
+
+<span style="font-size:10pt;">
+  <br> <div class="no-print">
+<hr style="border-top:1px solid red;">
+<div id="share-bar">
+	<span>Share to: </span>
+	<span class="share-buttons">
+		<a href='https://twitter.com/intent/tweet?text=The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation&url=https://blog.amitabhyadav.com/posts/2022/the-art-of-scaling-isscc22' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter" style="font-size: inherit -4px;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: #9e9e9e;cursor: pointer; padding: 4px; border-radius: 6px;">Twitter</a>
+		<a href='https://www.linkedin.com/shareArticle?mini=true&url=https://blog.amitabhyadav.com/posts/2022/the-art-of-scaling-isscc22&title=The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation&summary=&source=blog.amitabhyadav.com' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn" style="font-size: inherit -4px;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: #9e9e9e;cursor: pointer; padding: 4px; border-radius: 6px;">LinkedIn</a>
+		<a href='https://www.facebook.com/sharer.php?t=The Art of Scaling: Distributed and Connected to Sustain the Golden Age of Computation&u=https://blog.amitabhyadav.com/posts/2022/the-art-of-scaling-isscc22' onclick="window.open(this.href, 'pop-up', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook" style="font-size: inherit -4px;border: solid black 0.5pt;outline: none;background-color: rgba(186, 186, 186, 0.25);color: #9e9e9e;cursor: pointer; padding: 4px; border-radius: 6px;">Facebook</a>
+	</span>
+<br>
+<div style="margin:auto;max-width:70%;">
+  
+	<div id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    
+    var disqus_config = function () {
+    	this.page.url = "http://localhost:4000/posts/2022/the-art-of-scaling-isscc22";  // Replace PAGE_URL with your page's canonical URL variable
+    	this.page.identifier = "http://localhost:4000/posts/2022/the-art-of-scaling-isscc22"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://amitabhydv.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a></noscript>
+
+  
+  </div>
+  
+</div>
+</div>
+
+</article>
+
+
+<span style="margin: auto;font-size:12px;">Last Updated: March 06, 2023</span>
+
+<!--  -->
+<span></span>
+<!--  -->
+	<div style="position: fixed; top: -0.6pt; right:1em; background: white; border: solid black 0.5pt; color: black;" class="no-print">&nbsp; <a href="/cereview" style="color: inherit;">blog <span style="font-weight: 1000; font-size: 15px; color: red;">| </span>research summaries</a> &nbsp; </div>
+
+<!-- dark/light button -->
+  <div class="theme-switch-wrapper no-print">
+   <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+  </svg>
+  <label class="theme-switch" for="checkbox">
+    <input type="checkbox" id="checkbox" onchange="toggleDarkMode()"/>
+    <div class="slider round"></div>
+  </label>
+    <svg xmlns="http://www.w3.org/2000/svg" style="width: 24px; height: 24px; margin: 0 4px;" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+  </svg>
+  </div>
+
+<!-- dark/light button -->
+  <button onclick="topFunction()" id="topbtn" title="Go to top" class="no-print">&nbsp;Top&nbsp;</button>
+
+<footer style="font-family:Times, serif;" class="no-print"> 
+  <nav><a href="/cereview" >[all papers]</a><a href="/cereview/categories/" >[sort by conference/journal]</a></nav>
+ 
+<div>&copy; <script type="text/javascript"> document.write((new Date().getFullYear()));</script> Amitabh Yadav</div>
+<!-- <div>It's not right but the thing is, it's not even wrong!</div>--> 
+  
+</footer>
+
+
+<!-- Go to Top Scripts -->
+<script>
+//Get the button
+var mybutton = document.getElementById("topbtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+<!-- Collapsible Scripts-->
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("collapsibleactive");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
+
+<script>
+function myFunction() {
+  // Get the text field
+  var copyText = document.getElementById("pageurllink");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value);
+}
+</script>
+
+<script>
+const btn = document.getElementById('cpyurlbtn');
+if (btn) {
+btn.addEventListener('click', function handleClick() {
+  btn.textContent = 'copied';
+});
+}
+</script>
+
+<script>
+window.onload = function () {setColorScheme()};
+
+function setColorScheme() {
+	let colorScheme = localStorage.getItem("rexivBG");
+	if (colorScheme === "dark") {
+		document.getElementById("checkbox").checked = true;
+		document.body.style.background = "#212228";	//dark background
+		document.body.style.color = "#ffffff";
+		document.getElementById("an0n").style.filter = "invert(95%)";
+	} else if (colorScheme === "light") {
+		document.getElementById("checkbox").checked = false;
+		document.body.style.background = "#F5F5F5"; 	// light background
+		document.body.style.color = "#000000";
+		document.getElementById("an0n").style.filter = "invert(10%)";
+	} else {}
+}
+</script>
+
+<script>
+function toggleDarkMode() {
+	const toggleSwitch = document.getElementById("checkbox").checked;
+	var element = document.body;
+	if (toggleSwitch === true){				// dark
+		element.style.color = "#ffffff";
+		element.style.background = "#212228";
+		localStorage.setItem("rexivBG", "dark");
+	} else if (toggleSwitch === false) {			// light
+		element.style.color = "#000000";
+		element.style.background = "#F5F5F5";
+		localStorage.setItem("rexivBG", "light");
+	}
+}
+</script>
+
+<script>
+const numArticles = document.getElementById("articletable").rows.length;
+document.getElementById("numarticle").innerHTML = numArticles - 1;
+
+</script>
+
+</html>

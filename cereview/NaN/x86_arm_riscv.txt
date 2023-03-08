@@ -1,9 +1,0 @@
-
-Document:	RISC-V Assembly work manual
-Created:	Feb 12 2023
-References:	[1] http://www.riscvbook.com/
-		[2] https://riscv.org/technical/specifications/
-_______________________________________________________________
-
-Introduction
----------------------------------------------------------------
